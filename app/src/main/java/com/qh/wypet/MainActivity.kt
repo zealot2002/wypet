@@ -75,6 +75,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupBottomNavigation() {
+        // 设置图标不着色，使用原始图标颜色
+        binding.bottomNavView.itemIconTintList = null
+        // 设置文字颜色状态列表
+        binding.bottomNavView.itemTextColor = resources.getColorStateList(R.color.bottom_nav_text_color, theme)
+        
         binding.bottomNavView.setOnItemSelectedListener { item ->
             val fragment = when (item.itemId) {
                 R.id.navigation_pet -> PetFragment.newInstance()
@@ -87,6 +92,9 @@ class MainActivity : AppCompatActivity() {
             replaceFragment(fragment)
             true
         }
+        
+        // 默认选中宠物标签页
+        binding.bottomNavView.selectedItemId = R.id.navigation_pet
     }
     
     private fun replaceFragment(fragment: Fragment) {

@@ -36,7 +36,6 @@ class RelatedProductsAdapter(
         private val imageView: ImageView = itemView.findViewById(R.id.product_image)
         private val titleView: TextView = itemView.findViewById(R.id.product_name)
         private val priceView: PriceView = itemView.findViewById(R.id.product_price)
-        private val discountText: TextView = itemView.findViewById(R.id.discount_text)
         private val shippingText: TextView = itemView.findViewById(R.id.shipping_text)
 
         init {
@@ -53,9 +52,6 @@ class RelatedProductsAdapter(
             
             // 设置价格
             priceView.setPrice(product.price)
-            
-            // 默认隐藏折扣标签
-            discountText.visibility = View.GONE
             
             // 默认隐藏包邮标签
             shippingText.visibility = View.GONE

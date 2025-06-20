@@ -20,20 +20,6 @@
             android:scaleType="centerCrop"
             android:contentDescription="商品图片"
             tools:src="#EEEEEE" />
-
-        <!-- Discount Label -->
-        <TextView
-            android:id="@+id/discount_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:textColor="@android:color/white"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:paddingHorizontal="6dp"
-            android:paddingVertical="2dp"
-            android:background="#FF5252"
-            tools:text="直降 ¥ 13" />
     </FrameLayout>
 
     <!-- Product Info -->

@@ -31,7 +31,6 @@ class ProductAdapter(
         private val imageView: ImageView = itemView.findViewById(R.id.product_image)
         private val titleView: TextView = itemView.findViewById(R.id.product_name)
         private val priceView: PriceView = itemView.findViewById(R.id.product_price)
-        private val discountText: TextView = itemView.findViewById(R.id.discount_text)
         private val shippingText: TextView = itemView.findViewById(R.id.shipping_text)
         
         init {
@@ -61,14 +60,6 @@ class ProductAdapter(
             } catch (e: NumberFormatException) {
                 // 如果转换失败，使用0.0作为默认值
                 priceView.setPrice(0.0)
-            }
-    
-            // 设置折扣标签
-            if (product.discount != null) {
-                discountText.text = product.discount
-                discountText.visibility = View.VISIBLE
-            } else {
-                discountText.visibility = View.GONE
             }
     
             // 设置包邮标签 - 现在统一隐藏
