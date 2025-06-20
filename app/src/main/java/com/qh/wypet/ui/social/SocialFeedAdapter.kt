@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.qh.wypet.R
 import com.qh.wypet.utils.ImageUrls
+import com.qh.wypet.utils.PetPhotographyImages
 
 class SocialFeedAdapter(
     private val items: List<SocialFeedItem>,
@@ -52,7 +53,7 @@ class SocialFeedAdapter(
                 .circleCrop()
                 .into(avatarImageView)
             
-            // Load content image
+            // Load content image - use PetPhotographyImages for content images
             val imageUrl = item.imageUrl ?: getRandomContentImage()
             Glide.with(itemView.context)
                 .load(imageUrl)
@@ -79,21 +80,8 @@ class SocialFeedAdapter(
         }
         
         private fun getRandomContentImage(): String {
-            val catImages = listOf(
-                ImageUrls.CAT_2,
-                ImageUrls.CAT_3,
-                ImageUrls.CAT_GIF_1,
-                ImageUrls.CAT_GIF_2,
-                ImageUrls.CAT_GIF_3,
-                ImageUrls.CAT_GIF_4,
-                ImageUrls.CAT_GIF_5,
-                ImageUrls.CAT_GIF_6,
-                ImageUrls.CAT_GIF_7,
-                ImageUrls.CAT_GIF_8,
-                ImageUrls.CAT_GIF_9,
-                ImageUrls.CAT_GIF_10
-            )
-            return catImages.random()
+            // Use PetPhotographyImages instead of ImageUrls
+            return PetPhotographyImages.getRandomImageUrl()
         }
     }
 } 

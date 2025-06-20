@@ -5,23 +5,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="false"
+    android:fitsSystemWindows="true"
     android:background="#ffffff">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:background="@android:color/white"
-        android:fitsSystemWindows="false"
+        android:fitsSystemWindows="true"
         app:elevation="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:paddingHorizontal="16dp"
-            android:paddingVertical="8dp"
-            android:paddingTop="48dp">
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp">
 
             <!-- Search Bar -->
             <LinearLayout
@@ -91,7 +91,7 @@
         android:id="@+id/category_container"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="50dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:background="@android:color/white">
 
         <!-- Main Categories -->

@@ -1,6 +1,7 @@
 package com.qh.wypet.ui.social
 
 import com.qh.wypet.utils.ImageUrls
+import com.qh.wypet.utils.PetPhotographyImages
 
 data class SocialFeedItem(
     val id: String,
@@ -25,7 +26,7 @@ object SampleDataProvider {
                 avatarUrl = ImageUrls.USER_AVATAR_1,
                 timeAgo = "5分钟前",
                 content = "今天和主人一起去了宠物公园，遇到了好多小伙伴，真开心！",
-                imageUrl = ImageUrls.CAT_GIF_1,
+                imageUrl = PetPhotographyImages.IMAGE_LINKS[0],
                 likes = 128,
                 comments = 32
             ),
@@ -35,7 +36,7 @@ object SampleDataProvider {
                 avatarUrl = ImageUrls.USER_AVATAR_2,
                 timeAgo = "30分钟前",
                 content = "新买的猫爬架真好玩，我可以在上面睡午觉了~",
-                imageUrl = ImageUrls.CAT_SUPPLIES_1,
+                imageUrl = PetPhotographyImages.IMAGE_LINKS[1],
                 likes = 85,
                 comments = 14
             ),
@@ -45,7 +46,7 @@ object SampleDataProvider {
                 avatarUrl = ImageUrls.USER_AVATAR_3,
                 timeAgo = "2小时前",
                 content = "主人今天给我买了新的罐头，味道真不错，推荐给大家！",
-                imageUrl = ImageUrls.CAT_FOOD_1,
+                imageUrl = PetPhotographyImages.IMAGE_LINKS[2],
                 likes = 256,
                 comments = 48
             ),
@@ -55,7 +56,7 @@ object SampleDataProvider {
                 avatarUrl = ImageUrls.USER_AVATAR_1,
                 timeAgo = "3小时前",
                 content = "今天去宠物医院做了体检，医生说我非常健康！",
-                imageUrl = ImageUrls.PET_HEALTH_1,
+                imageUrl = PetPhotographyImages.IMAGE_LINKS[3],
                 likes = 78,
                 comments = 23
             ),
@@ -65,7 +66,7 @@ object SampleDataProvider {
                 avatarUrl = ImageUrls.USER_AVATAR_2,
                 timeAgo = "5小时前",
                 content = "新买的猫薄荷玩具，我好喜欢！一直在玩个不停～",
-                imageUrl = ImageUrls.CAT_MINT_1,
+                imageUrl = PetPhotographyImages.IMAGE_LINKS[4],
                 likes = 312,
                 comments = 45
             ),
@@ -75,7 +76,7 @@ object SampleDataProvider {
                 avatarUrl = ImageUrls.USER_AVATAR_3,
                 timeAgo = "昨天",
                 content = "猫砂盆更换了新款，自动清理太方便了，主人再也不用天天铲屎啦！",
-                imageUrl = ImageUrls.CAT_LITTER_1,
+                imageUrl = PetPhotographyImages.IMAGE_LINKS[5],
                 likes = 188,
                 comments = 36
             ),
@@ -85,7 +86,7 @@ object SampleDataProvider {
                 avatarUrl = ImageUrls.USER_AVATAR_1,
                 timeAgo = "昨天",
                 content = "天气变热了，我的夏季护理开始啦！记得给猫咪多梳毛哦～",
-                imageUrl = ImageUrls.CAT_GIF_15,
+                imageUrl = PetPhotographyImages.IMAGE_LINKS[6],
                 likes = 267,
                 comments = 52
             ),
@@ -95,7 +96,7 @@ object SampleDataProvider {
                 avatarUrl = ImageUrls.USER_AVATAR_2,
                 timeAgo = "2天前",
                 content = "玩具老鼠大比拼，这款超级好玩，抓着不放手！",
-                imageUrl = ImageUrls.CAT_TOY_1,
+                imageUrl = PetPhotographyImages.IMAGE_LINKS[7],
                 likes = 156,
                 comments = 31
             )
@@ -110,7 +111,7 @@ object SampleDataProvider {
                 avatarUrl = ImageUrls.USER_AVATAR_1,
                 timeAgo = "10分钟前",
                 content = "今天去宠物医院做了体检，医生说我很健康，继续保持！",
-                imageUrl = ImageUrls.PET_HEALTH_5,
+                imageUrl = PetPhotographyImages.IMAGE_LINKS[8],
                 likes = 67,
                 comments = 12
             ),
@@ -120,7 +121,7 @@ object SampleDataProvider {
                 avatarUrl = ImageUrls.USER_AVATAR_2,
                 timeAgo = "1小时前",
                 content = "昨天在家拆家具，被主人发现了，今天只能乖乖吃素...",
-                imageUrl = ImageUrls.CAT_GIF_7,
+                imageUrl = PetPhotographyImages.IMAGE_LINKS[9],
                 likes = 134,
                 comments = 28
             ),
@@ -130,7 +131,7 @@ object SampleDataProvider {
                 avatarUrl = ImageUrls.USER_AVATAR_3,
                 timeAgo = "2小时前",
                 content = "新的猫窝到货啦，超级舒服，一躺就不想起来了～",
-                imageUrl = ImageUrls.CAT_SUPPLIES_7,
+                imageUrl = PetPhotographyImages.IMAGE_LINKS[10],
                 likes = 98,
                 comments = 18
             ),
@@ -140,7 +141,7 @@ object SampleDataProvider {
                 avatarUrl = ImageUrls.USER_AVATAR_1,
                 timeAgo = "昨天",
                 content = "夏天到了，冰垫是必备的降温神器，大家记得给猫咪准备一个～",
-                imageUrl = ImageUrls.CAT_SUPPLIES_15,
+                imageUrl = PetPhotographyImages.IMAGE_LINKS[11],
                 likes = 201,
                 comments = 43
             )
@@ -155,7 +156,7 @@ object SampleDataProvider {
                 avatarUrl = ImageUrls.USER_AVATAR_2,
                 timeAgo = "15分钟前",
                 content = "我们家族今天迎来了新成员，一只可爱的小黑猫！大家欢迎~",
-                imageUrl = ImageUrls.CAT_GIF_21,
+                imageUrl = PetPhotographyImages.IMAGE_LINKS[12],
                 likes = 320,
                 comments = 76
             ),
@@ -165,7 +166,7 @@ object SampleDataProvider {
                 avatarUrl = ImageUrls.USER_AVATAR_3,
                 timeAgo = "3小时前",
                 content = "家族聚餐日，给大家准备了美味的猫罐头大餐！",
-                imageUrl = ImageUrls.CAT_FOOD_14,
+                imageUrl = PetPhotographyImages.IMAGE_LINKS[13],
                 likes = 178,
                 comments = 35
             ),
@@ -175,7 +176,7 @@ object SampleDataProvider {
                 avatarUrl = ImageUrls.USER_AVATAR_1,
                 timeAgo = "昨天",
                 content = "大家族的合照时间到啦！看看谁是最上镜的～",
-                imageUrl = ImageUrls.CAT_GIF_25,
+                imageUrl = PetPhotographyImages.IMAGE_LINKS[14],
                 likes = 267,
                 comments = 48
             )

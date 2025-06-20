@@ -52,26 +52,8 @@ class BusinessFragment : BaseFragment() {
     }
     
     private fun setupWhiteStatusBar() {
-        val window = requireActivity().window
-        
-        // 设置状态栏颜色为白色
-        window.statusBarColor = ContextCompat.getColor(requireContext(), android.R.color.white)
-        
-        // 设置状态栏图标为深色（在白色背景上）
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            // Android 11+ (API 30+)
-            window.insetsController?.setSystemBarsAppearance(
-                WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,
-                WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
-            )
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            // Android 6.0+ (API 23+)
-            @Suppress("DEPRECATION")
-            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-        }
-        
-        // 让内容延伸到状态栏下方（沉浸式效果）
-        WindowCompat.setDecorFitsSystemWindows(window, false)
+        // 商城页面不需要特殊处理状态栏，因为MainActivity已经设置了全局状态栏样式
+        // 如果需要在这个页面有特殊的状态栏样式，可以在这里设置
     }
 
     private fun setupCategoryClickListeners() {

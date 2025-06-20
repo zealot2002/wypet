@@ -4,23 +4,19 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 
 /**
- * 基础Fragment，处理沉浸式状态栏相关的边距
+ * 基础Fragment
  */
 abstract class BaseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
-        // 处理系统窗口插图，为状态栏留出空间
+        // 系统现在会自动处理状态栏区域，不需要手动添加padding
         ViewCompat.setOnApplyWindowInsetsListener(view) { v, insets ->
             val statusBarInsets = insets.getInsets(WindowInsetsCompat.Type.statusBars())
-            
-            // 为视图顶部添加padding，避免内容被状态栏覆盖
-            v.updatePadding(top = statusBarInsets.top)
             
             // 允许fragment子类处理自己的window insets
             onApplyWindowInsets(v, statusBarInsets.top)

@@ -1,6 +1,7 @@
 package com.qh.wypet
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
@@ -55,20 +56,24 @@ class MainActivity : AppCompatActivity() {
         // 隐藏ActionBar
         supportActionBar?.hide()
         
-        // 设置布局延伸到状态栏，但不设置FLAG_LAYOUT_NO_LIMITS
-        window.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        // 强制设置状态栏颜色为白色
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.statusBarColor = getColor(android.R.color.white)
         
-        // 让内容延伸到状态栏和导航栏
-        WindowCompat.setDecorFitsSystemWindows(window, false)
+        // 设置状态栏图标为深色，适合白色背景
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        }
         
-        // 状态栏设置为透明
-        window.statusBarColor = android.graphics.Color.TRANSPARENT
+        // 让系统自己管理内容区域，不要延伸到状态栏
+        WindowCompat.setDecorFitsSystemWindows(window, true)
+        
+        // 导航栏可以保持透明
         window.navigationBarColor = android.graphics.Color.TRANSPARENT
         
-        // 使用更现代的API设置系统UI可见性（替换过时的flag）
+        // 使用更现代的API设置系统UI可见性
         val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
-        
-        // 设置状态栏图标为深色(为浅色背景准备)
         windowInsetsController.isAppearanceLightStatusBars = true
         windowInsetsController.isAppearanceLightNavigationBars = true
         
