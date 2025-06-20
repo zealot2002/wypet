@@ -20,9 +20,9 @@
             android:id="@+id/collapsingToolbar"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:contentScrim="@android:color/white"
             android:fitsSystemWindows="true"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:contentScrim="@android:color/white"
             app:statusBarScrim="@android:color/transparent"
             app:scrimAnimationDuration="200">
 
@@ -43,14 +43,16 @@
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/imageIndicator"
                     android:layout_width="wrap_content"
-                    android:layout_height="10dp"
+                    android:layout_height="8dp"
                     android:layout_gravity="bottom|center_horizontal"
                     android:layout_marginBottom="20dp"
                     android:background="@android:color/transparent"
                     app:tabBackground="@drawable/tab_selector"
                     app:tabGravity="center"
-                    app:tabPaddingStart="4dp"
-                    app:tabPaddingEnd="4dp"
+                    app:tabMinWidth="4dp"
+                    app:tabMaxWidth="4dp"
+                    app:tabPaddingStart="6dp"
+                    app:tabPaddingEnd="6dp"
                     app:tabIndicatorHeight="0dp" />
             </FrameLayout>
 
@@ -58,8 +60,8 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
+                android:layout_marginTop="24dp"
                 android:background="@android:color/transparent"
-                android:paddingTop="24dp"
                 app:contentInsetStart="0dp"
                 app:layout_collapseMode="pin">
                 
@@ -246,7 +248,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                >
 
                 <TextView
                     android:layout_width="match_parent"
@@ -254,7 +256,9 @@
                     android:text="猜你喜欢"
                     android:textColor="#333333"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_marginStart="10dp"
+                    />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/relatedProductsRecyclerView"
@@ -286,7 +290,7 @@
             <com.qh.wypet.widgets.IconFontView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:text="@string/icon_favorite"
+                android:text="@string/icons_679"
                 android:textColor="#666666"
                 android:textSize="24sp"
                 android:contentDescription="收藏" />
@@ -310,7 +314,7 @@
             <com.qh.wypet.widgets.IconFontView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:text="@string/icon_customer_service"
+                android:text="@string/icons_6e9"
                 android:textColor="#666666"
                 android:textSize="24sp"
                 android:contentDescription="客服" />

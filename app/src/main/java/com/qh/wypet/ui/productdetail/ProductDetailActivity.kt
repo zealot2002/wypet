@@ -3,6 +3,7 @@ package com.qh.wypet.ui.productdetail
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -10,6 +11,7 @@ import android.os.Looper
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
+import android.view.WindowManager
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
@@ -18,10 +20,11 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.qh.wypet.R
 import com.qh.wypet.utils.ImageUrls
 import java.text.NumberFormat
@@ -67,32 +70,42 @@ class ProductDetailActivity : AppCompatActivity() {
     }
     
     private fun setupTransparentStatusBar() {
-        // Make status bar completely transparent
+        // 设置全屏显示，内容延伸到状态栏
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
+        
+        // 确保状态栏完全透明
         window.statusBarColor = Color.TRANSPARENT
         
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            // For Android 11 and above
+            // Android 11及以上版本
             window.setDecorFitsSystemWindows(false)
             window.insetsController?.let {
-                it.hide(WindowInsets.Type.statusBars())
                 it.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
             }
         } else {
-            // For older versions
+            // 较旧版本
             @Suppress("DEPRECATION")
             window.decorView.systemUiVisibility = (
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                    or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
-            // Don't set light status bar initially to match the white text in the image
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+            )
         }
     }
     
     private fun setupToolbarAndScrollBehavior() {
         appBarLayout = findViewById(R.id.appBarLayout)
         toolbarTitle = findViewById(R.id.toolbarTitle)
+        val collapsingToolbar = findViewById<CollapsingToolbarLayout>(R.id.collapsingToolbar)
         
         // Hide toolbar title initially
         toolbarTitle.alpha = 0f
+        
+        // 初始状态栏图标应该是白色的（透明背景上看得更清楚）
+        setLightStatusBar(false)
         
         appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
             val maxScroll = appBarLayout.totalScrollRange
@@ -102,8 +115,10 @@ class ProductDetailActivity : AppCompatActivity() {
             toolbarTitle.alpha = percentage
             
             // Change status bar icons to dark when toolbar becomes visible
-            if (percentage > 0.9f) {
+            if (percentage > 0.85f) {
                 setLightStatusBar(true)
+                // 确保标题栏背景是白色
+                collapsingToolbar.setContentScrimColor(Color.WHITE)
             } else {
                 setLightStatusBar(false)
             }
@@ -231,10 +246,41 @@ class ProductDetailActivity : AppCompatActivity() {
             navigateToProductDetail(product.id)
         }
         
-        // Use StaggeredGridLayoutManager with 2 columns for waterfall layout
-        val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        // 使用GridLayoutManager代替StaggeredGridLayoutManager以保持与商城页面一致
+        val layoutManager = androidx.recyclerview.widget.GridLayoutManager(this, 2)
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = relatedProductsAdapter
+        
+        // 添加间距装饰器使布局与商城页一致
+        val itemDecoration = object : androidx.recyclerview.widget.RecyclerView.ItemDecoration() {
+            override fun getItemOffsets(
+                outRect: android.graphics.Rect,
+                view: View,
+                parent: RecyclerView,
+                state: RecyclerView.State
+            ) {
+                val position = parent.getChildAdapterPosition(view)
+                val spanCount = 2
+                val spacing = resources.getDimensionPixelSize(R.dimen.grid_spacing)
+                
+                // 左右边距
+                if (position % spanCount == 0) {
+                    // 左边的列
+                    outRect.left = spacing
+                    outRect.right = spacing / 2
+                } else {
+                    // 右边的列
+                    outRect.left = spacing / 2
+                    outRect.right = spacing
+                }
+                
+                // 上下边距
+                outRect.top = spacing
+                outRect.bottom = spacing
+            }
+        }
+        
+        recyclerView.addItemDecoration(itemDecoration)
     }
     
     private fun setupBottomActions() {

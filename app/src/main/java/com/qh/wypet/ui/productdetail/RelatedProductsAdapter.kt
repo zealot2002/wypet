@@ -19,7 +19,7 @@ class RelatedProductsAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RelatedProductViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_related_product, parent, false)
+            .inflate(R.layout.item_product, parent, false)
         return RelatedProductViewHolder(view, onProductClick)
     }
 
@@ -33,9 +33,11 @@ class RelatedProductsAdapter(
         itemView: View,
         private val onProductClick: (RelatedProductModel) -> Unit
     ) : RecyclerView.ViewHolder(itemView) {
-        private val imageView: ImageView = itemView.findViewById(R.id.productImage)
-        private val titleView: TextView = itemView.findViewById(R.id.productTitle)
-        private val priceView: TextView = itemView.findViewById(R.id.productPrice)
+        private val imageView: ImageView = itemView.findViewById(R.id.product_image)
+        private val titleView: TextView = itemView.findViewById(R.id.product_name)
+        private val priceView: PriceView = itemView.findViewById(R.id.product_price)
+        private val discountText: TextView = itemView.findViewById(R.id.discount_text)
+        private val shippingText: TextView = itemView.findViewById(R.id.shipping_text)
 
         init {
             itemView.setOnClickListener {
@@ -49,9 +51,14 @@ class RelatedProductsAdapter(
         fun bind(product: RelatedProductModel) {
             titleView.text = product.title
             
-            // Format price
-            val numberFormat = NumberFormat.getCurrencyInstance(Locale.CHINA)
-            priceView.text = numberFormat.format(product.price)
+            // 设置价格
+            priceView.setPrice(product.price)
+            
+            // 默认隐藏折扣标签
+            discountText.visibility = View.GONE
+            
+            // 默认隐藏包邮标签
+            shippingText.visibility = View.GONE
 
             Glide.with(itemView.context)
                 .load(product.imageUrl)

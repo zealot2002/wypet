@@ -249,9 +249,9 @@ object ImageUrls {
     const val CAT_GIF_30 = "https://img0.baidu.com/it/u=525065227,783517028&fm=253&fmt=auto&app=138&f=GIF?w=285&h=277"
     
     // 使用百度AI开放平台样例图片 - 这些不需要referer验证
-    const val DOG_BAIDU_2 = "https://bce.bdstatic.com/doc/ai-cloud-platform/BEARING_1_d45a995.jpg"
-    const val CAT_BAIDU_1 = "https://bce.bdstatic.com/doc/ai-cloud-platform/CAT_c11eb93.jpeg"
-    const val CAT_BAIDU_2 = "https://bce.bdstatic.com/doc/ai-cloud-platform/CAT_1_90f38f1.jpg"
+    const val DOG_BAIDU_2 = "https://img0.baidu.com/it/u=525065227,783517028&fm=253&fmt=auto&app=138&f=GIF?w=285&h=277"
+    const val CAT_BAIDU_1 = "https://img1.baidu.com/it/u=2343611619,722732413&fm=253&fmt=auto&app=138&f=GIF?w=320&h=407"
+    const val CAT_BAIDU_2 = "https://img0.baidu.com/it/u=3962167017,3484361532&fm=253&fmt=auto&app=138&f=GIF?w=427&h=427"
     
     // 猫粮图片列表
     val CAT_FOOD_IMAGES = listOf(
