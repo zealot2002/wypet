@@ -253,16 +253,6 @@ object ImageUrls {
     const val CAT_BAIDU_1 = "https://bce.bdstatic.com/doc/ai-cloud-platform/CAT_c11eb93.jpeg"
     const val CAT_BAIDU_2 = "https://bce.bdstatic.com/doc/ai-cloud-platform/CAT_1_90f38f1.jpg"
     
-    // 使用阿里云通用图片，这些通常不会有访问限制
-    const val PET_FEEDER_1 = "https://img.alicdn.com/imgextra/i1/O1CN01U3Xj1q1dWfKyGhFHH_!!6000000003747-0-tps-720-405.jpg" // 宠物用品
-    const val PET_FEEDER_2 = "https://img.alicdn.com/imgextra/i2/O1CN01bPUWGv20AQXSQcjLw_!!6000000006809-0-tps-720-405.jpg" // 宠物用品
-    const val PET_BED_1 = "https://img.alicdn.com/imgextra/i1/O1CN01087QsA1c0bbGLLYjB_!!6000000003542-0-tps-720-405.jpg" // 宠物床
-    
-    // 使用一些比较通用的图片资源
-    const val GENERAL_1 = "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" // 百度logo
-    const val GENERAL_2 = "https://www.aliyun.com/favicon.ico" // 阿里云logo
-    const val GENERAL_3 = "https://cloud.tencent.com/favicon.ico" // 腾讯云logo
-    
     // 猫粮图片列表
     val CAT_FOOD_IMAGES = listOf(
         CAT_FOOD_1, CAT_FOOD_2, CAT_FOOD_3, CAT_FOOD_4, CAT_FOOD_5,
@@ -347,8 +337,7 @@ object ImageUrls {
         CAT_LITTER_1, CAT_LITTER_2, CAT_LITTER_3, CAT_LITTER_4, CAT_LITTER_5,
         // 猫薄荷
         CAT_MINT_1, CAT_MINT_2, CAT_MINT_3, CAT_MINT_4, CAT_MINT_5,
-        // 其他
-        PET_FEEDER_1, PET_FEEDER_2, PET_BED_1
+
     )
     
     // 头像图片
@@ -368,7 +357,6 @@ object ImageUrls {
         CAT_GIF_1, CAT_GIF_2, CAT_GIF_3, CAT_GIF_4, CAT_GIF_5,
         // 其他
         DOG_1, CAT_BAIDU_1, CAT_BAIDU_2,
-        PET_BED_1, PET_FEEDER_1, PET_FEEDER_2
     )
     
     /**

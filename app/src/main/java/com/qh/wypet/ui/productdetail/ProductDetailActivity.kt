@@ -2,14 +2,25 @@ package com.qh.wypet.ui.productdetail
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
+import android.view.WindowInsets
+import android.view.WindowInsetsController
+import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
+import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.qh.wypet.R
 import com.qh.wypet.utils.ImageUrls
@@ -26,6 +37,8 @@ class ProductDetailActivity : AppCompatActivity() {
     // UI components
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayoutMediator: TabLayoutMediator
+    private lateinit var appBarLayout: AppBarLayout
+    private lateinit var toolbarTitle: TextView
     
     // Auto-scroll for product images
     private val handler = Handler(Looper.getMainLooper())
@@ -42,11 +55,86 @@ class ProductDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_detail)
+        
+        // Make the status bar transparent for immersive experience
+        setupTransparentStatusBar()
 
         productId = intent.getStringExtra(EXTRA_PRODUCT_ID)
 
-        initToolbar()
+        setupToolbarAndScrollBehavior()
+        setupNavigation()
         initProductDetail()
+    }
+    
+    private fun setupTransparentStatusBar() {
+        // Make status bar completely transparent
+        window.statusBarColor = Color.TRANSPARENT
+        
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            // For Android 11 and above
+            window.setDecorFitsSystemWindows(false)
+            window.insetsController?.let {
+                it.hide(WindowInsets.Type.statusBars())
+                it.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            }
+        } else {
+            // For older versions
+            @Suppress("DEPRECATION")
+            window.decorView.systemUiVisibility = (
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                    or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
+            // Don't set light status bar initially to match the white text in the image
+        }
+    }
+    
+    private fun setupToolbarAndScrollBehavior() {
+        appBarLayout = findViewById(R.id.appBarLayout)
+        toolbarTitle = findViewById(R.id.toolbarTitle)
+        
+        // Hide toolbar title initially
+        toolbarTitle.alpha = 0f
+        
+        appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
+            val maxScroll = appBarLayout.totalScrollRange
+            val percentage = Math.abs(verticalOffset).toFloat() / maxScroll.toFloat()
+            
+            // Fade in toolbar title as user scrolls
+            toolbarTitle.alpha = percentage
+            
+            // Change status bar icons to dark when toolbar becomes visible
+            if (percentage > 0.9f) {
+                setLightStatusBar(true)
+            } else {
+                setLightStatusBar(false)
+            }
+        })
+    }
+    
+    private fun setLightStatusBar(isLight: Boolean) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.let {
+                if (isLight) {
+                    it.setSystemBarsAppearance(
+                        WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,
+                        WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
+                    )
+                } else {
+                    it.setSystemBarsAppearance(
+                        0,
+                        WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
+                    )
+                }
+            }
+        } else {
+            @Suppress("DEPRECATION")
+            if (isLight) {
+                window.decorView.systemUiVisibility = (
+                        window.decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
+            } else {
+                window.decorView.systemUiVisibility = (
+                        window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv())
+            }
+        }
     }
     
     override fun onResume() {
@@ -67,16 +155,14 @@ class ProductDetailActivity : AppCompatActivity() {
         handler.removeCallbacks(autoScrollRunnable)
     }
 
-    private fun initToolbar() {
-        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
-        
+    private fun setupNavigation() {
         // Handle back button
-        toolbar.setNavigationOnClickListener { onBackPressed() }
+        findViewById<ImageButton>(R.id.btnBack).setOnClickListener {
+            onBackPressed()
+        }
         
         // Handle share button
-        findViewById<android.widget.ImageView>(R.id.btnShare).setOnClickListener {
+        findViewById<ImageButton>(R.id.btnShare).setOnClickListener {
             shareProduct()
         }
     }
@@ -144,7 +230,10 @@ class ProductDetailActivity : AppCompatActivity() {
         relatedProductsAdapter = RelatedProductsAdapter(relatedProducts) { product ->
             navigateToProductDetail(product.id)
         }
-        recyclerView.layoutManager = GridLayoutManager(this, 3)
+        
+        // Use StaggeredGridLayoutManager with 2 columns for waterfall layout
+        val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        recyclerView.layoutManager = layoutManager
         recyclerView.adapter = relatedProductsAdapter
     }
     
@@ -171,9 +260,10 @@ class ProductDetailActivity : AppCompatActivity() {
             price = 49.99,
             originalPrice = 69.99,
             imageUrls = listOf(
-                ImageUrls.CAT_BAIDU_1,
-                ImageUrls.CAT_2,
-                ImageUrls.CAT_3
+                // Use more reliable image URLs
+                ImageUrls.CAT_TOY_6,
+                ImageUrls.CAT_TOY_7,
+                ImageUrls.CAT_TOY_10
             ),
             rating = 9.3f,
             ratingCount = 235,
@@ -216,37 +306,37 @@ class ProductDetailActivity : AppCompatActivity() {
             RelatedProductModel(
                 id = "201",
                 title = "柴犬抱枕",
-                imageUrl = ImageUrls.DOG_1,
+                imageUrl = ImageUrls.DOG_BAIDU_2,
                 price = 59.99
             ),
             RelatedProductModel(
                 id = "202",
                 title = "熊猫公仔",
-                imageUrl = ImageUrls.OTHER_PET_1,
+                imageUrl = ImageUrls.CAT_TOY_11,
                 price = 69.99
             ),
             RelatedProductModel(
                 id = "203",
                 title = "猫咪项圈",
-                imageUrl = ImageUrls.CAT_ACCESSORY_1,
+                imageUrl = ImageUrls.CAT_SUPPLIES_1,
                 price = 29.99
             ),
             RelatedProductModel(
                 id = "204",
                 title = "宠物零食套装",
-                imageUrl = ImageUrls.PET_FOOD_1,
+                imageUrl = ImageUrls.CAT_FOOD_3,
                 price = 39.99
             ),
             RelatedProductModel(
                 id = "205",
                 title = "猫爬架",
-                imageUrl = ImageUrls.CAT_TOY_1,
+                imageUrl = ImageUrls.CAT_TOY_5,
                 price = 199.99
             ),
             RelatedProductModel(
                 id = "206",
                 title = "宠物梳子",
-                imageUrl = ImageUrls.GROOMING_1,
+                imageUrl = ImageUrls.CAT_TOY_8,
                 price = 19.99
             )
         )
