@@ -1,0 +1,321 @@
+<resources>
+    <string name="app_name">wypet</string>
+    <string name="title_pet">本喵</string>
+    <string name="title_social">社交</string>
+    <string name="title_business">商业</string>
+    <string name="title_owner">主人</string>
+    
+    <!-- Social Tab Titles -->
+    <string name="tab_recommended">推荐</string>
+    <string name="tab_following">关注</string>
+    <string name="tab_family">家族</string>
+    
+    <!-- Social Feed Items -->
+    <string name="profile_avatar">Profile Avatar</string>
+    <string name="post_image">Post Image</string>
+    <string name="like">Like</string>
+    <string name="comment">Comment</string>
+    <string name="share">Share</string>
+    <string name="favorite">Favorite</string>
+    
+    <!-- Icon Font references -->
+    <string name="icon_favorite">&#xe60f;</string>
+    <string name="icon_customer_service">&#xe60d;</string>
+    
+    <!-- Category Activity -->
+    <string name="all_categories">全部分类</string>
+    <string name="all">全部</string>
+    <string name="for_dogs">狗狗</string>
+    <string name="for_cats">猫咪</string>
+    <string name="pet_supplies">宠物用品</string>
+    <string name="search">搜索</string>
+    <string name="back">返回</string>
+    <string name="subcategory_image">子类别图片</string>
+
+        <!--    iconFont strings start -->
+        <!-- 自己去找图片，然后引用，不起名字了
+        https://www.iconfont.cn/manage/index?spm=a313x.7781069.1998910419.db775f1f3&manage_type=myprojects&projectId=2218389&keyword=&project_type=&page=
+        -->
+        <string name="icons_604" translatable="false">&#xe604;</string>
+        <string name="icons_605" translatable="false">&#xe605;</string>
+        <string name="icons_606" translatable="false">&#xe606;</string>
+        <string name="icons_607" translatable="false">&#xe607;</string>
+        <string name="icons_608" translatable="false">&#xe608;</string>
+        <string name="icons_609" translatable="false">&#xe609;</string>
+        <string name="icons_60a" translatable="false">&#xe60a;</string>
+        <string name="icons_60b" translatable="false">&#xe60b;</string>
+        <string name="icons_60c" translatable="false">&#xe60c;</string>
+        <string name="icons_60d" translatable="false">&#xe60d;</string>
+        <string name="icons_60e" translatable="false">&#xe60e;</string>
+        <string name="icons_60f" translatable="false">&#xe60f;</string>
+        <string name="icons_610" translatable="false">&#xe610;</string>
+        <string name="icons_611" translatable="false">&#xe611;</string>
+        <string name="icons_612" translatable="false">&#xe612;</string>
+        <string name="icons_613" translatable="false">&#xe613;</string>
+        <string name="icons_614" translatable="false">&#xe614;</string>
+        <string name="icons_615" translatable="false">&#xe615;</string>
+        <string name="icons_616" translatable="false">&#xe616;</string>
+        <string name="icons_617" translatable="false">&#xe617;</string>
+        <string name="icons_618" translatable="false">&#xe618;</string>
+        <string name="icons_619" translatable="false">&#xe619;</string>
+        <string name="icons_61a" translatable="false">&#xe61a;</string>
+        <string name="icons_61b" translatable="false">&#xe61b;</string>
+        <string name="icons_61c" translatable="false">&#xe61c;</string>
+        <string name="icons_61d" translatable="false">&#xe61d;</string>
+        <string name="icons_61e" translatable="false">&#xe61e;</string>
+        <string name="icons_61f" translatable="false">&#xe61f;</string>
+        <string name="icons_620" translatable="false">&#xe620;</string>
+        <string name="icons_621" translatable="false">&#xe621;</string>
+        <string name="icons_622" translatable="false">&#xe622;</string>
+        <string name="icons_623" translatable="false">&#xe623;</string>
+        <string name="icons_624" translatable="false">&#xe624;</string>
+        <string name="icons_625" translatable="false">&#xe625;</string>
+        <string name="icons_626" translatable="false">&#xe626;</string>
+        <string name="icons_627" translatable="false">&#xe627;</string>
+        <string name="icons_628" translatable="false">&#xe628;</string>
+        <string name="icons_629" translatable="false">&#xe629;</string>
+        <string name="icons_62a" translatable="false">&#xe62a;</string>
+        <string name="icons_62b" translatable="false">&#xe62b;</string>
+        <string name="icons_62c" translatable="false">&#xe62c;</string>
+        <string name="icons_62d" translatable="false">&#xe62d;</string>
+        <string name="icons_62e" translatable="false">&#xe62e;</string>
+        <string name="icons_62f" translatable="false">&#xe62f;</string>
+        <string name="icons_630" translatable="false">&#xe630;</string>
+        <string name="icons_631" translatable="false">&#xe631;</string>
+        <string name="icons_632" translatable="false">&#xe632;</string>
+        <string name="icons_633" translatable="false">&#xe633;</string>
+        <string name="icons_634" translatable="false">&#xe634;</string>
+        <string name="icons_635" translatable="false">&#xe635;</string>
+        <string name="icons_636" translatable="false">&#xe636;</string>
+        <string name="icons_637" translatable="false">&#xe637;</string>
+        <string name="icons_638" translatable="false">&#xe638;</string>
+        <string name="icons_639" translatable="false">&#xe639;</string>
+        <string name="icons_63a" translatable="false">&#xe63a;</string>
+        <string name="icons_63b" translatable="false">&#xe63b;</string>
+        <string name="icons_63c" translatable="false">&#xe63c;</string>
+        <string name="icons_63d" translatable="false">&#xe63d;</string>
+        <string name="icons_63e" translatable="false">&#xe63e;</string>
+        <string name="icons_63f" translatable="false">&#xe63f;</string>
+        <string name="icons_640" translatable="false">&#xe640;</string>
+        <string name="icons_641" translatable="false">&#xe641;</string>
+        <string name="icons_642" translatable="false">&#xe642;</string>
+        <string name="icons_643" translatable="false">&#xe643;</string>
+        <string name="icons_644" translatable="false">&#xe644;</string>
+        <string name="icons_645" translatable="false">&#xe645;</string>
+        <string name="icons_646" translatable="false">&#xe646;</string>
+        <string name="icons_647" translatable="false">&#xe647;</string>
+        <string name="icons_648" translatable="false">&#xe648;</string>
+        <string name="icons_649" translatable="false">&#xe649;</string>
+        <string name="icons_64a" translatable="false">&#xe64a;</string>
+        <string name="icons_64b" translatable="false">&#xe64b;</string>
+        <string name="icons_64c" translatable="false">&#xe64c;</string>
+        <string name="icons_64d" translatable="false">&#xe64d;</string>
+        <string name="icons_64e" translatable="false">&#xe64e;</string>
+        <string name="icons_64f" translatable="false">&#xe64f;</string>
+
+        <string name="icons_650" translatable="false">&#xe650;</string>
+        <string name="icons_651" translatable="false">&#xe651;</string>
+        <string name="icons_652" translatable="false">&#xe652;</string>
+        <string name="icons_653" translatable="false">&#xe653;</string>
+        <string name="icons_654" translatable="false">&#xe654;</string>
+        <string name="icons_655" translatable="false">&#xe655;</string>
+        <string name="icons_656" translatable="false">&#xe656;</string>
+        <string name="icons_657" translatable="false">&#xe657;</string>
+        <string name="icons_658" translatable="false">&#xe658;</string>
+        <string name="icons_659" translatable="false">&#xe659;</string>
+        <string name="icons_65a" translatable="false">&#xe65a;</string>
+        <string name="icons_65b" translatable="false">&#xe65b;</string>
+        <string name="icons_65c" translatable="false">&#xe65c;</string>
+        <string name="icons_65d" translatable="false">&#xe65d;</string>
+        <string name="icons_65e" translatable="false">&#xe65e;</string>
+        <string name="icons_65f" translatable="false">&#xe65f;</string>
+
+        <string name="icons_660" translatable="false">&#xe660;</string>
+        <string name="icons_661" translatable="false">&#xe661;</string>
+        <string name="icons_662" translatable="false">&#xe662;</string>
+        <string name="icons_663" translatable="false">&#xe663;</string>
+        <string name="icons_664" translatable="false">&#xe664;</string>
+        <string name="icons_665" translatable="false">&#xe665;</string>
+        <string name="icons_666" translatable="false">&#xe666;</string>
+        <string name="icons_667" translatable="false">&#xe667;</string>
+        <string name="icons_668" translatable="false">&#xe668;</string>
+        <string name="icons_669" translatable="false">&#xe669;</string>
+        <string name="icons_66a" translatable="false">&#xe66a;</string>
+        <string name="icons_66b" translatable="false">&#xe66b;</string>
+        <string name="icons_66c" translatable="false">&#xe66c;</string>
+        <string name="icons_66d" translatable="false">&#xe66d;</string>
+        <string name="icons_66e" translatable="false">&#xe66e;</string>
+        <string name="icons_66f" translatable="false">&#xe66f;</string>
+        <string name="icons_670" translatable="false">&#xe670;</string>
+        <string name="icons_671" translatable="false">&#xe671;</string>
+        <string name="icons_672" translatable="false">&#xe672;</string>
+        <string name="icons_673" translatable="false">&#xe673;</string>
+        <string name="icons_674" translatable="false">&#xe674;</string>
+        <string name="icons_675" translatable="false">&#xe675;</string>
+        <string name="icons_676" translatable="false">&#xe676;</string>
+        <string name="icons_677" translatable="false">&#xe677;</string>
+        <string name="icons_678" translatable="false">&#xe678;</string>
+        <string name="icons_679" translatable="false">&#xe679;</string>
+        <string name="icons_67a" translatable="false">&#xe67a;</string>
+        <string name="icons_67b" translatable="false">&#xe67b;</string>
+        <string name="icons_67c" translatable="false">&#xe67c;</string>
+        <string name="icons_67d" translatable="false">&#xe67d;</string>
+        <string name="icons_67e" translatable="false">&#xe67e;</string>
+        <string name="icons_67f" translatable="false">&#xe67f;</string>
+
+        <string name="icons_680" translatable="false">&#xe680;</string>
+        <string name="icons_681" translatable="false">&#xe681;</string>
+        <string name="icons_682" translatable="false">&#xe682;</string>
+        <string name="icons_683" translatable="false">&#xe683;</string>
+        <string name="icons_684" translatable="false">&#xe684;</string>
+        <string name="icons_685" translatable="false">&#xe685;</string>
+        <string name="icons_686" translatable="false">&#xe686;</string>
+        <string name="icons_687" translatable="false">&#xe687;</string>
+        <string name="icons_688" translatable="false">&#xe688;</string>
+        <string name="icons_689" translatable="false">&#xe689;</string>
+        <string name="icons_68a" translatable="false">&#xe68a;</string>
+        <string name="icons_68b" translatable="false">&#xe68b;</string>
+        <string name="icons_68c" translatable="false">&#xe68c;</string>
+        <string name="icons_68d" translatable="false">&#xe68d;</string>
+        <string name="icons_68e" translatable="false">&#xe68e;</string>
+        <string name="icons_68f" translatable="false">&#xe68f;</string>
+
+        <string name="icons_690" translatable="false">&#xe690;</string>
+        <string name="icons_691" translatable="false">&#xe691;</string>
+        <string name="icons_692" translatable="false">&#xe692;</string>
+        <string name="icons_693" translatable="false">&#xe693;</string>
+        <string name="icons_694" translatable="false">&#xe694;</string>
+        <string name="icons_695" translatable="false">&#xe695;</string>
+        <string name="icons_696" translatable="false">&#xe696;</string>
+        <string name="icons_697" translatable="false">&#xe697;</string>
+        <string name="icons_698" translatable="false">&#xe698;</string>
+        <string name="icons_699" translatable="false">&#xe699;</string>
+        <string name="icons_69a" translatable="false">&#xe69a;</string>
+        <string name="icons_69b" translatable="false">&#xe69b;</string>
+        <string name="icons_69c" translatable="false">&#xe69c;</string>
+        <string name="icons_69d" translatable="false">&#xe69d;</string>
+        <string name="icons_69e" translatable="false">&#xe69e;</string>
+        <string name="icons_69f" translatable="false">&#xe69f;</string>
+
+        <string name="icons_6a0" translatable="false">&#xe6a0;</string>
+        <string name="icons_6a1" translatable="false">&#xe6a1;</string>
+        <string name="icons_6a2" translatable="false">&#xe6a2;</string>
+        <string name="icons_6a3" translatable="false">&#xe6a3;</string>
+        <string name="icons_6a4" translatable="false">&#xe6a4;</string>
+        <string name="icons_6a5" translatable="false">&#xe6a5;</string>
+        <string name="icons_6a6" translatable="false">&#xe6a6;</string>
+        <string name="icons_6a7" translatable="false">&#xe6a7;</string>
+        <string name="icons_6a8" translatable="false">&#xe6a8;</string>
+        <string name="icons_6a9" translatable="false">&#xe6a9;</string>
+        <string name="icons_6aa" translatable="false">&#xe6aa;</string>
+        <string name="icons_6ab" translatable="false">&#xe6ab;</string>
+        <string name="icons_6ac" translatable="false">&#xe6ac;</string>
+        <string name="icons_6ad" translatable="false">&#xe6ad;</string>
+        <string name="icons_6ae" translatable="false">&#xe6ae;</string>
+        <string name="icons_6af" translatable="false">&#xe6af;</string>
+
+        <string name="icons_6b0" translatable="false">&#xe6b0;</string>
+        <string name="icons_6b1" translatable="false">&#xe6b1;</string>
+        <string name="icons_6b2" translatable="false">&#xe6b2;</string>
+        <string name="icons_6b3" translatable="false">&#xe6b3;</string>
+        <string name="icons_6b4" translatable="false">&#xe6b4;</string>
+        <string name="icons_6b5" translatable="false">&#xe6b5;</string>
+        <string name="icons_6b6" translatable="false">&#xe6b6;</string>
+        <string name="icons_6b7" translatable="false">&#xe6b7;</string>
+        <string name="icons_6b8" translatable="false">&#xe6b8;</string>
+        <string name="icons_6b9" translatable="false">&#xe6b9;</string>
+        <string name="icons_6ba" translatable="false">&#xe6ba;</string>
+        <string name="icons_6bb" translatable="false">&#xe6bb;</string>
+        <string name="icons_6bc" translatable="false">&#xe6bc;</string>
+        <string name="icons_6bd" translatable="false">&#xe6bd;</string>
+        <string name="icons_6be" translatable="false">&#xe6be;</string>
+        <string name="icons_6bf" translatable="false">&#xe6bf;</string>
+
+        <string name="icons_6c0" translatable="false">&#xe6c0;</string>
+        <string name="icons_6c1" translatable="false">&#xe6c1;</string>
+        <string name="icons_6c2" translatable="false">&#xe6c2;</string>
+        <string name="icons_6c3" translatable="false">&#xe6c3;</string>
+        <string name="icons_6c4" translatable="false">&#xe6c4;</string>
+        <string name="icons_6c5" translatable="false">&#xe6c5;</string>
+        <string name="icons_6c6" translatable="false">&#xe6c6;</string>
+        <string name="icons_6c7" translatable="false">&#xe6c7;</string>
+        <string name="icons_6c8" translatable="false">&#xe6c8;</string>
+        <string name="icons_6c9" translatable="false">&#xe6c9;</string>
+        <string name="icons_6ca" translatable="false">&#xe6ca;</string>
+        <string name="icons_6cb" translatable="false">&#xe6cb;</string>
+        <string name="icons_6cc" translatable="false">&#xe6cc;</string>
+        <string name="icons_6cd" translatable="false">&#xe6cd;</string>
+        <string name="icons_6ce" translatable="false">&#xe6ce;</string>
+        <string name="icons_6cf" translatable="false">&#xe6cf;</string>
+
+        <string name="icons_6d0" translatable="false">&#xe6d0;</string>
+        <string name="icons_6d1" translatable="false">&#xe6d1;</string>
+        <string name="icons_6d2" translatable="false">&#xe6d2;</string>
+        <string name="icons_6d3" translatable="false">&#xe6d3;</string>
+        <string name="icons_6d4" translatable="false">&#xe6d4;</string>
+        <string name="icons_6d5" translatable="false">&#xe6d5;</string>
+        <string name="icons_6d6" translatable="false">&#xe6d6;</string>
+        <string name="icons_6d7" translatable="false">&#xe6d7;</string>
+        <string name="icons_6d8" translatable="false">&#xe6d8;</string>
+        <string name="icons_6d9" translatable="false">&#xe6d9;</string>
+        <string name="icons_6da" translatable="false">&#xe6da;</string>
+        <string name="icons_6db" translatable="false">&#xe6db;</string>
+        <string name="icons_6dc" translatable="false">&#xe6dc;</string>
+        <string name="icons_6dd" translatable="false">&#xe6dd;</string>
+        <string name="icons_6de" translatable="false">&#xe6de;</string>
+        <string name="icons_6df" translatable="false">&#xe6df;</string>
+
+        <string name="icons_6e0" translatable="false">&#xe6e0;</string>
+        <string name="icons_6e1" translatable="false">&#xe6e1;</string>
+        <string name="icons_6e2" translatable="false">&#xe6e2;</string>
+        <string name="icons_6e3" translatable="false">&#xe6e3;</string>
+        <string name="icons_6e4" translatable="false">&#xe6e4;</string>
+        <string name="icons_6e5" translatable="false">&#xe6e5;</string>
+        <string name="icons_6e6" translatable="false">&#xe6e6;</string>
+        <string name="icons_6e7" translatable="false">&#xe6e7;</string>
+        <string name="icons_6e8" translatable="false">&#xe6e8;</string>
+        <string name="icons_6e9" translatable="false">&#xe6e9;</string>
+        <string name="icons_6ea" translatable="false">&#xe6ea;</string>
+        <string name="icons_6eb" translatable="false">&#xe6eb;</string>
+        <string name="icons_6ec" translatable="false">&#xe6ec;</string>
+        <string name="icons_6ed" translatable="false">&#xe6ed;</string>
+        <string name="icons_6ee" translatable="false">&#xe6ee;</string>
+        <string name="icons_6ef" translatable="false">&#xe6ef;</string>
+
+        <string name="icons_6f0" translatable="false">&#xe6f0;</string>
+        <string name="icons_6f1" translatable="false">&#xe6f1;</string>
+        <string name="icons_6f2" translatable="false">&#xe6f2;</string>
+        <string name="icons_6f3" translatable="false">&#xe6f3;</string>
+        <string name="icons_6f4" translatable="false">&#xe6f4;</string>
+        <string name="icons_6f5" translatable="false">&#xe6f5;</string>
+        <string name="icons_6f6" translatable="false">&#xe6f6;</string>
+        <string name="icons_6f7" translatable="false">&#xe6f7;</string>
+        <string name="icons_6f8" translatable="false">&#xe6f8;</string>
+        <string name="icons_6f9" translatable="false">&#xe6f9;</string>
+        <string name="icons_6fa" translatable="false">&#xe6fa;</string>
+        <string name="icons_6fb" translatable="false">&#xe6fb;</string>
+        <string name="icons_6fc" translatable="false">&#xe6fc;</string>
+        <string name="icons_6fd" translatable="false">&#xe6fd;</string>
+        <string name="icons_6fe" translatable="false">&#xe6fe;</string>
+        <string name="icons_6ff" translatable="false">&#xe6ff;</string>
+
+        <string name="icons_700" translatable="false">&#xe700;</string>
+        <string name="icons_701" translatable="false">&#xe701;</string>
+        <string name="icons_702" translatable="false">&#xe702;</string>
+        <string name="icons_703" translatable="false">&#xe703;</string>
+        <string name="icons_704" translatable="false">&#xe704;</string>
+        <string name="icons_705" translatable="false">&#xe705;</string>
+        <string name="icons_706" translatable="false">&#xe706;</string>
+        <string name="icons_707" translatable="false">&#xe707;</string>
+        <string name="icons_708" translatable="false">&#xe708;</string>
+        <string name="icons_709" translatable="false">&#xe709;</string>
+        <string name="icons_70a" translatable="false">&#xe70a;</string>
+        <string name="icons_70b" translatable="false">&#xe70b;</string>
+        <string name="icons_70c" translatable="false">&#xe70c;</string>
+        <string name="icons_70d" translatable="false">&#xe70d;</string>
+        <string name="icons_70e" translatable="false">&#xe70e;</string>
+        <string name="icons_70f" translatable="false">&#xe70f;</string>
+
+        <!--    iconFont strings end -->
+
+    </resources>

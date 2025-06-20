@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
+    android:background="#ffffff">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        android:fitsSystemWindows="false"
+        app:elevation="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:paddingTop="48dp">
+
+            <!-- Search Bar -->
+            <LinearLayout
+                android:id="@+id/search_container"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="10dp"
+                android:background="#F2F2F2"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btn_camera"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <com.qh.wypet.widgets.IconFontView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:text="@string/icons_618"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textColor="#777777"
+                    android:contentDescription="搜索" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:text="搜索宠物商品"
+                    android:textColor="#999999"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Camera Button -->
+            <com.qh.wypet.widgets.IconFontView
+                android:id="@+id/btn_camera"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="@string/icons_635"
+                android:gravity="center"
+                android:textSize="22sp"
+                android:textColor="#333333"
+                android:contentDescription="相机"
+                app:layout_constraintEnd_toStartOf="@id/btn_search_text"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <!-- Search Text Button -->
+            <TextView
+                android:id="@+id/btn_search_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="搜索"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Categories Section -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/category_container"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/white">
+
+        <!-- Main Categories -->
+        <HorizontalScrollView
+            android:id="@+id/main_categories"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:paddingEnd="80dp"
+            android:clipToPadding="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            
+            <LinearLayout
+                android:id="@+id/categories_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="12dp"
+                android:paddingHorizontal="10dp">
+
+                <!-- 饮食用品 - Selected Category -->
+                <LinearLayout
+                    android:id="@+id/category_food"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:paddingHorizontal="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="饮食"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="#333333" />
+
+                    <View
+                        android:layout_width="18dp"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="4dp"
+                        android:background="#CC334D" />
+                </LinearLayout>
+
+                <!-- 猫砂及如厕用品 -->
+                <LinearLayout
+                    android:id="@+id/category_litter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:paddingHorizontal="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="猫砂"
+                        android:textSize="15sp"
+                        android:textColor="#333333" />
+
+                    <View
+                        android:layout_width="18dp"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="4dp"
+                        android:background="#CC334D"
+                        android:visibility="invisible" />
+                </LinearLayout>
+
+                <!-- 猫窝及休息用品 -->
+                <LinearLayout
+                    android:id="@+id/category_bed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:paddingHorizontal="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="猫窝"
+                        android:textSize="15sp"
+                        android:textColor="#333333" />
+
+                    <View
+                        android:layout_width="18dp"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="4dp"
+                        android:background="#CC334D"
+                        android:visibility="invisible" />
+                </LinearLayout>
+
+                <!-- 清洁护理用品 -->
+                <LinearLayout
+                    android:id="@+id/category_clean"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:paddingHorizontal="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="清洁"
+                        android:textSize="15sp"
+                        android:textColor="#333333" />
+
+                    <View
+                        android:layout_width="18dp"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="4dp"
+                        android:background="#CC334D"
+                        android:visibility="invisible" />
+                </LinearLayout>
+
+                <!-- 玩具用品 -->
+                <LinearLayout
+                    android:id="@+id/category_toy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:paddingHorizontal="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="玩具"
+                        android:textSize="15sp"
+                        android:textColor="#333333" />
+
+                    <View
+                        android:layout_width="18dp"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="4dp"
+                        android:background="#CC334D"
+                        android:visibility="invisible" />
+                </LinearLayout>
+
+                <!-- 健康医疗用品 -->
+                <LinearLayout
+                    android:id="@+id/category_medical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:paddingHorizontal="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="医疗"
+                        android:textSize="15sp"
+                        android:textColor="#333333" />
+
+                    <View
+                        android:layout_width="18dp"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="4dp"
+                        android:background="#CC334D"
+                        android:visibility="invisible" />
+                </LinearLayout>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- More Categories Button (Fixed Position) now with icon -->
+        <LinearLayout
+            android:id="@+id/btn_more_categories"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            android:background="@android:color/white"
+            android:paddingHorizontal="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <com.qh.wypet.widgets.IconFontView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:text="@string/icons_665"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="#333333"
+                android:layout_marginEnd="3dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="分类"
+                android:textSize="15sp"
+                android:textColor="#333333" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    
+    <!-- Loading Overlay (Initially Hidden) -->
+    <FrameLayout
+        android:id="@+id/loading_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80FFFFFF"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center" />
+    </FrameLayout>
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="90dp"
+        android:id="@+id/products_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:clipToPadding="false"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        tools:listitem="@layout/item_product" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout> 
