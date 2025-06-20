@@ -55,11 +55,8 @@ class MainActivity : AppCompatActivity() {
         // 隐藏ActionBar
         supportActionBar?.hide()
         
-        // 设置布局延伸到状态栏
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-        )
+        // 设置布局延伸到状态栏，但不设置FLAG_LAYOUT_NO_LIMITS
+        window.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         
         // 让内容延伸到状态栏和导航栏
         WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -68,12 +65,7 @@ class MainActivity : AppCompatActivity() {
         window.statusBarColor = android.graphics.Color.TRANSPARENT
         window.navigationBarColor = android.graphics.Color.TRANSPARENT
         
-        // 添加沉浸式标志（适用于Android 5.0及以上）
-        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION)
-        
-        // 获取WindowInsetsController来控制系统栏的外观
+        // 使用更现代的API设置系统UI可见性（替换过时的flag）
         val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
         
         // 设置状态栏图标为深色(为浅色背景准备)

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.qh.wypet.databinding.FragmentFamilyBinding
 import com.qh.wypet.ui.base.BaseFragment
 
@@ -32,10 +32,18 @@ class FamilyFragment : BaseFragment(), SocialFeedAdapter.SocialFeedInteractionLi
         setupRecyclerView()
     }
     
+    /**
+     * 覆盖基类方法，在子Fragment中不需要处理状态栏
+     */
+    override fun onApplyWindowInsets(view: View, statusBarHeight: Int) {
+        // 移除可能被BaseFragment添加的顶部padding
+        view.setPadding(view.paddingLeft, 0, view.paddingRight, view.paddingBottom)
+    }
+    
     private fun setupRecyclerView() {
         adapter = SocialFeedAdapter(feedItems, this)
         binding.recyclerViewFamily.apply {
-            layoutManager = LinearLayoutManager(requireContext())
+            layoutManager = GridLayoutManager(requireContext(), 2)
             adapter = this@FamilyFragment.adapter
         }
     }
@@ -47,19 +55,6 @@ class FamilyFragment : BaseFragment(), SocialFeedAdapter.SocialFeedInteractionLi
 
     override fun onLikeClicked(item: SocialFeedItem) {
         Toast.makeText(context, "点赞成功", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onCommentClicked(item: SocialFeedItem) {
-        Toast.makeText(context, "评论", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onShareClicked(item: SocialFeedItem) {
-        Toast.makeText(context, "分享", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onFavoriteClicked(item: SocialFeedItem) {
-        val message = if (item.isFavorite) "收藏成功" else "已取消收藏"
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroyView() {

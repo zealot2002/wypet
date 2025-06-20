@@ -6,7 +6,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.qh.wypet.R
+import com.qh.wypet.utils.ImageUrls
 
 class SocialFeedAdapter(
     private val items: List<SocialFeedItem>,
@@ -16,9 +18,6 @@ class SocialFeedAdapter(
     interface SocialFeedInteractionListener {
         fun onItemClicked(item: SocialFeedItem)
         fun onLikeClicked(item: SocialFeedItem)
-        fun onCommentClicked(item: SocialFeedItem)
-        fun onShareClicked(item: SocialFeedItem)
-        fun onFavoriteClicked(item: SocialFeedItem)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SocialFeedViewHolder {
@@ -35,68 +34,66 @@ class SocialFeedAdapter(
 
     inner class SocialFeedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val usernameTextView: TextView = itemView.findViewById(R.id.usernameTextView)
-        private val timeTextView: TextView = itemView.findViewById(R.id.timeTextView)
         private val contentTextView: TextView = itemView.findViewById(R.id.contentTextView)
         private val likesCountTextView: TextView = itemView.findViewById(R.id.likesCountTextView)
-        private val commentsCountTextView: TextView = itemView.findViewById(R.id.commentsCountTextView)
         private val avatarImageView: ImageView = itemView.findViewById(R.id.avatarImageView)
         private val contentImageView: ImageView = itemView.findViewById(R.id.contentImageView)
-        private val favoriteImageView: ImageView = itemView.findViewById(R.id.favoriteImageView)
-        private val likeImageView: ImageView = itemView.findViewById(R.id.likeImageView)
-        private val commentImageView: ImageView = itemView.findViewById(R.id.commentImageView)
-        private val shareImageView: ImageView = itemView.findViewById(R.id.shareImageView)
-        
+
         fun bind(item: SocialFeedItem) {
             usernameTextView.text = item.username
-            timeTextView.text = item.timeAgo
             contentTextView.text = item.content
             likesCountTextView.text = item.likes.toString()
-            commentsCountTextView.text = item.comments.toString()
             
-            // Set avatar placeholder for now
-            // In real app, load image with Glide/Coil
-            avatarImageView.setImageResource(R.drawable.ic_pet)
+            // Load avatar image
+            val avatarUrl = item.avatarUrl ?: getRandomAvatarUrl()
+            Glide.with(itemView.context)
+                .load(avatarUrl)
+                .placeholder(R.drawable.ic_pet)
+                .circleCrop()
+                .into(avatarImageView)
             
-            // Set our custom icons
-            likeImageView.setImageResource(R.drawable.ic_like)
-            commentImageView.setImageResource(R.drawable.ic_comment)
-            shareImageView.setImageResource(R.drawable.ic_share)
-            
-            // Handle image visibility
-            if (item.imageUrl != null) {
-                contentImageView.visibility = View.VISIBLE
-                // In real app, load image with Glide/Coil
-                contentImageView.setImageResource(R.drawable.ic_pet)
-            } else {
-                contentImageView.visibility = View.GONE
-            }
-            
-            // Set favorite state
-            favoriteImageView.setImageResource(R.drawable.ic_favorite)
-            favoriteImageView.alpha = if (item.isFavorite) 1.0f else 0.5f
+            // Load content image
+            val imageUrl = item.imageUrl ?: getRandomContentImage()
+            Glide.with(itemView.context)
+                .load(imageUrl)
+                .placeholder(R.drawable.ic_pet)
+                .into(contentImageView)
             
             // Set click listeners
             itemView.setOnClickListener {
                 listener?.onItemClicked(item)
             }
             
-            favoriteImageView.setOnClickListener {
-                item.isFavorite = !item.isFavorite
-                favoriteImageView.alpha = if (item.isFavorite) 1.0f else 0.5f
-                listener?.onFavoriteClicked(item)
-            }
-            
-            likeImageView.setOnClickListener {
-                listener?.onLikeClicked(item)
-            }
-            
-            commentImageView.setOnClickListener {
-                listener?.onCommentClicked(item)
-            }
-            
-            shareImageView.setOnClickListener {
-                listener?.onShareClicked(item)
-            }
+//            likeImageView.setOnClickListener {
+//                listener?.onLikeClicked(item)
+//            }
+        }
+        
+        private fun getRandomAvatarUrl(): String {
+            val avatars = listOf(
+                ImageUrls.USER_AVATAR_1,
+                ImageUrls.USER_AVATAR_2,
+                ImageUrls.USER_AVATAR_3
+            )
+            return avatars.random()
+        }
+        
+        private fun getRandomContentImage(): String {
+            val catImages = listOf(
+                ImageUrls.CAT_2,
+                ImageUrls.CAT_3,
+                ImageUrls.CAT_GIF_1,
+                ImageUrls.CAT_GIF_2,
+                ImageUrls.CAT_GIF_3,
+                ImageUrls.CAT_GIF_4,
+                ImageUrls.CAT_GIF_5,
+                ImageUrls.CAT_GIF_6,
+                ImageUrls.CAT_GIF_7,
+                ImageUrls.CAT_GIF_8,
+                ImageUrls.CAT_GIF_9,
+                ImageUrls.CAT_GIF_10
+            )
+            return catImages.random()
         }
     }
 } 

@@ -10,7 +10,7 @@
     <color name="social_tab_selected">#FF000000</color>
     <color name="social_tab_unselected">#99000000</color>
     <color name="social_divider">#20000000</color>
-    <color name="social_background">#FFFFFFFF</color>
+    <color name="social_background">#F5F5F5</color>
     
     <!-- Owner page colors -->
     <color name="light_background">#F8F8F8</color>
