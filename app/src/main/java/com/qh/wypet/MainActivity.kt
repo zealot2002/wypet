@@ -24,6 +24,15 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     
+    // 保存所有一级fragment实例
+    private lateinit var petFragment: PetFragment
+    private lateinit var socialFragment: SocialFragment
+    private lateinit var businessFragment: BusinessFragment
+    private lateinit var ownerFragment: OwnerFragment
+    
+    // 当前显示的fragment
+    private var currentFragment: Fragment? = null
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         // 移除全屏标志设置
         super.onCreate(savedInstanceState)
@@ -37,6 +46,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // 初始化所有fragment
+        initFragments()
         setupBottomNavigation()
     }
 
@@ -74,6 +85,26 @@ class MainActivity : AppCompatActivity() {
             WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
     }
 
+    private fun initFragments() {
+        // 创建fragment实例
+        petFragment = PetFragment.newInstance()
+        socialFragment = SocialFragment.newInstance()
+        businessFragment = BusinessFragment.newInstance()
+        ownerFragment = OwnerFragment.newInstance()
+        
+        // 获取FragmentManager
+        val transaction = supportFragmentManager.beginTransaction()
+        
+        // 添加所有fragment到容器，但初始都隐藏
+        transaction.add(R.id.fragment_container, petFragment).hide(petFragment)
+        transaction.add(R.id.fragment_container, socialFragment).hide(socialFragment)
+        transaction.add(R.id.fragment_container, businessFragment).hide(businessFragment)
+        transaction.add(R.id.fragment_container, ownerFragment).hide(ownerFragment)
+        
+        // 提交事务
+        transaction.commit()
+    }
+
     private fun setupBottomNavigation() {
         // 设置图标不着色，使用原始图标颜色
         binding.bottomNavView.itemIconTintList = null
@@ -82,14 +113,14 @@ class MainActivity : AppCompatActivity() {
         
         binding.bottomNavView.setOnItemSelectedListener { item ->
             val fragment = when (item.itemId) {
-                R.id.navigation_pet -> PetFragment.newInstance()
-                R.id.navigation_social -> SocialFragment.newInstance()
-                R.id.navigation_business -> BusinessFragment.newInstance()
-                R.id.navigation_owner -> OwnerFragment.newInstance()
-                else -> SocialFragment.newInstance()
+                R.id.navigation_pet -> petFragment
+                R.id.navigation_social -> socialFragment
+                R.id.navigation_business -> businessFragment
+                R.id.navigation_owner -> ownerFragment
+                else -> petFragment
             }
             
-            replaceFragment(fragment)
+            showFragment(fragment)
             true
         }
         
@@ -97,9 +128,25 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavView.selectedItemId = R.id.navigation_pet
     }
     
-    private fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, fragment)
-            .commit()
+    private fun showFragment(fragment: Fragment) {
+        if (fragment == currentFragment) {
+            return
+        }
+        
+        val transaction = supportFragmentManager.beginTransaction()
+        
+        // 隐藏当前fragment（如果存在）
+        currentFragment?.let {
+            transaction.hide(it)
+        }
+        
+        // 显示选中的fragment
+        transaction.show(fragment)
+        
+        // 更新当前fragment引用
+        currentFragment = fragment
+        
+        // 提交事务
+        transaction.commit()
     }
 }
