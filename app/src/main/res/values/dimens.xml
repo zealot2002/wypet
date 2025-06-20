@@ -3,4 +3,8 @@
     <dimen name="grid_spacing">6dp</dimen>
     <dimen name="indicator_width">4dp</dimen>
     <dimen name="indicator_margin">2dp</dimen>
+    
+    <!-- Social Feed Detail -->
+    <dimen name="dot_size">8dp</dimen>
+    <dimen name="dot_margin">4dp</dimen>
 </resources> 

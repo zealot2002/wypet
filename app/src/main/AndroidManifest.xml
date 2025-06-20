@@ -33,6 +33,10 @@
             android:name=".ui.productdetail.ProductDetailActivity"
             android:theme="@style/Theme.Wypet.NoActionBar"
             android:exported="false" />
+        <activity
+            android:name=".ui.social.SocialFeedDetailActivity"
+            android:theme="@style/Theme.Wypet.NoActionBar"
+            android:exported="false" />
     </application>
 
 </manifest>

@@ -50,7 +50,8 @@ class FollowingFragment : BaseFragment(), SocialFeedAdapter.SocialFeedInteractio
     
     // SocialFeedInteractionListener implementation
     override fun onItemClicked(item: SocialFeedItem) {
-        Toast.makeText(context, "查看 ${item.username} 的动态详情", Toast.LENGTH_SHORT).show()
+        // The navigation is already handled in the adapter
+        // But we can add additional logic here if needed
     }
 
     override fun onLikeClicked(item: SocialFeedItem) {

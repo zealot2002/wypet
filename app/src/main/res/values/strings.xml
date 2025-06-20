@@ -318,4 +318,9 @@
 
         <!--    iconFont strings end -->
 
+        <!-- Social Feed Detail -->
+        <string name="social_feed_image">Social Feed Image</string>
+        <string name="more_options">More Options</string>
+        <string name="share_content">Share Content</string>
+
     </resources>

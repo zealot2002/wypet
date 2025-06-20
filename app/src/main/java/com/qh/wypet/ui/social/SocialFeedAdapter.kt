@@ -62,6 +62,12 @@ class SocialFeedAdapter(
             
             // Set click listeners
             itemView.setOnClickListener {
+                // Launch detail activity
+                val context = itemView.context
+                val intent = SocialFeedDetailActivity.newIntent(context, item)
+                context.startActivity(intent)
+                
+                // Also notify the listener
                 listener?.onItemClicked(item)
             }
             
