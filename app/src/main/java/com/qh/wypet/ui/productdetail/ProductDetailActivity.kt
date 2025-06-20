@@ -212,15 +212,28 @@ class ProductDetailActivity : AppCompatActivity() {
         productImageAdapter = ProductImageAdapter(imageUrls)
         viewPager.adapter = productImageAdapter
         
-        // Set up indicator dots
+        // 设置指示器小圆点
         val tabLayout = findViewById<com.google.android.material.tabs.TabLayout>(R.id.imageIndicator)
+        
+        // 确保TabLayout有足够的宽度容纳所有指示器
+        tabLayout.post {
+            // 设置TabLayout的宽度为指示器数量 * (指示器宽度 + 间距)
+            val indicatorWidth = resources.getDimensionPixelSize(R.dimen.indicator_width)
+            val indicatorMargin = resources.getDimensionPixelSize(R.dimen.indicator_margin)
+            val totalWidth = imageUrls.size * (indicatorWidth + indicatorMargin * 2)
+            
+            val layoutParams = tabLayout.layoutParams
+            layoutParams.width = totalWidth
+            tabLayout.layoutParams = layoutParams
+        }
+        
         tabLayoutMediator = TabLayoutMediator(tabLayout, viewPager) { _, _ -> }
         tabLayoutMediator.attach()
         
-        // Set up page change listener to pause auto-scroll when user is interacting
+        // 设置页面监听器，用于在用户交互时暂停自动滚动
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
-                // Reset auto-scroll timer when user manually changes page
+                // 当用户手动更改页面时重置自动滚动计时器
                 stopAutoScroll()
                 startAutoScroll()
             }
@@ -382,7 +395,7 @@ class ProductDetailActivity : AppCompatActivity() {
             RelatedProductModel(
                 id = "206",
                 title = "宠物梳子",
-                imageUrl = ImageUrls.CAT_TOY_8,
+                imageUrl = ImageUrls.CAT_TOY_18,
                 price = 19.99
             )
         )

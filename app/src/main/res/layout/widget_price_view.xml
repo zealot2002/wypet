@@ -9,7 +9,7 @@
         android:id="@+id/currentPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#FF5722"
+        android:textColor="#333333"
         android:textSize="18sp"
         android:textStyle="bold"
         tools:text="¥49.99" />

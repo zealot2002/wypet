@@ -44,16 +44,19 @@
                     android:id="@+id/imageIndicator"
                     android:layout_width="wrap_content"
                     android:layout_height="8dp"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginBottom="20dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="16dp"
                     android:background="@android:color/transparent"
                     app:tabBackground="@drawable/tab_selector"
                     app:tabGravity="center"
-                    app:tabMinWidth="4dp"
-                    app:tabMaxWidth="4dp"
-                    app:tabPaddingStart="6dp"
-                    app:tabPaddingEnd="6dp"
-                    app:tabIndicatorHeight="0dp" />
+                    app:tabMinWidth="8dp"
+                    app:tabMaxWidth="8dp"
+                    app:tabPaddingStart="2dp"
+                    app:tabPaddingEnd="2dp"
+                    app:tabIndicator="@null"
+                    app:tabIndicatorHeight="0dp"
+                    app:tabMode="fixed" />
             </FrameLayout>
 
             <androidx.appcompat.widget.Toolbar
@@ -89,8 +92,8 @@
                         android:layout_centerInParent="true"
                         android:text="商品详情"
                         android:textColor="#333333"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textSize="16sp"
+                        />
                         
                     <ImageButton
                         android:id="@+id/btnShare"
@@ -182,7 +185,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="8dp"
-                android:background="#F5F5F5" />
+                android:background="#f5f5ff" />
 
             <!-- Comments Section -->
             <LinearLayout
@@ -219,11 +222,11 @@
                         android:layout_height="0dp"
                         android:layout_weight="1" />
 
-                    <TextView
+                    <com.qh.wypet.widgets.IconFontView
                         android:id="@+id/viewAllComments"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="查看全部 >"
+                        android:text="全部&#xe6ab;"
                         android:textColor="#999999"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -241,7 +244,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="8dp"
-                android:background="#F5F5F5" />
+                android:background="#f6f6f6" />
 
             <!-- Related Products Section -->
             <LinearLayout
@@ -257,7 +260,8 @@
                     android:textColor="#333333"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
                     />
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -276,7 +280,6 @@
         android:layout_height="56dp"
         android:layout_gravity="bottom"
         android:background="@android:color/white"
-        android:elevation="8dp"
         android:orientation="horizontal">
 
         <LinearLayout
