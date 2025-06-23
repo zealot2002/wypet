@@ -22,6 +22,7 @@
             android:layout_height="0dp"
             android:scaleType="centerCrop"
             android:contentDescription="@string/post_image"
+            android:transitionName="social_feed_image"
             app:layout_constraintDimensionRatio="2:3"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"

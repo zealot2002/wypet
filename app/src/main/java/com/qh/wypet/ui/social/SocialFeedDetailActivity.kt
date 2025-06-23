@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.Window
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -11,6 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
@@ -36,7 +38,13 @@ class SocialFeedDetailActivity : AppCompatActivity() {
     private var currentReplyTo: SocialCommentModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Enable content transitions
+        window.requestFeature(Window.FEATURE_CONTENT_TRANSITIONS)
         super.onCreate(savedInstanceState)
+        
+        // Enable shared element transitions
+        supportPostponeEnterTransition()
+        
         binding = ActivitySocialFeedDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

@@ -5,6 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.qh.wypet.R
@@ -62,10 +64,16 @@ class SocialFeedAdapter(
             
             // Set click listeners
             itemView.setOnClickListener {
-                // Launch detail activity
+                // Create shared element transition
+                val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                    itemView.context as androidx.appcompat.app.AppCompatActivity,
+                    Pair(contentImageView, "social_feed_image")
+                )
+                
+                // Launch detail activity with transition
                 val context = itemView.context
                 val intent = SocialFeedDetailActivity.newIntent(context, item)
-                context.startActivity(intent)
+                context.startActivity(intent, options.toBundle())
                 
                 // Also notify the listener
                 listener?.onItemClicked(item)
