@@ -1,101 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:foreground="@drawable/ripple_effect"
     android:clickable="true"
     android:focusable="true"
-    android:background="@android:color/white"
-    android:layout_margin="2dp">
-
-    <!-- Content image with 2:3 aspect ratio -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/contentImageView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="centerCrop"
-            android:contentDescription="@string/post_image"
-            android:transitionName="social_feed_image"
-            app:layout_constraintDimensionRatio="2:3"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:src="@tools:sample/backgrounds/scenic" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp">
-
-        <!-- Content text - Modified to support 1-3 lines -->
-        <TextView
-            android:id="@+id/contentTextView"
+        android:orientation="vertical">
+        
+        <!-- Content image with 2:3 aspect ratio -->
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="13sp"
-            android:textColor="@android:color/black"
-            android:lineSpacingMultiplier="1.2"
-            android:minLines="1"
-            android:maxLines="3"
-            android:ellipsize="end"
-            tools:text="This is the content of the social post which may span multiple lines." />
-
-        <!-- Author and likes row -->
+            android:layout_height="wrap_content">
+    
+            <ImageView
+                android:id="@+id/contentImageView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/post_image"
+                android:transitionName="social_feed_image"
+                app:layout_constraintDimensionRatio="2:3"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:src="@tools:sample/backgrounds/scenic" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="6dp"
-            android:gravity="center_vertical">
-
-            <ImageView
-                android:id="@+id/avatarImageView"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:scaleType="centerCrop"
-                android:contentDescription="@string/profile_avatar"
-                tools:src="@tools:sample/avatars" />
-
+            android:orientation="vertical"
+            android:padding="8dp">
+    
+            <!-- Content text - Modified to support 1-3 lines -->
             <TextView
-                android:id="@+id/usernameTextView"
-                android:layout_width="0dp"
+                android:id="@+id/contentTextView"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginStart="8dp"
-                android:textSize="12sp"
-                android:textStyle="bold"
+                android:textSize="13sp"
                 android:textColor="@android:color/black"
-                android:maxLines="1"
+                android:lineSpacingMultiplier="1.2"
+                android:minLines="1"
+                android:maxLines="3"
                 android:ellipsize="end"
-                tools:text="Username" />
-
-            <com.qh.wypet.widgets.IconFontView
-                android:layout_width="wrap_content"
+                tools:text="This is the content of the social post which may span multiple lines." />
+    
+            <!-- Author and likes row -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/icons_624"
-                android:textSize="14sp"
-                />
-
-            <TextView
-                android:id="@+id/likesCountTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:textSize="12sp"
-                android:textColor="@android:color/darker_gray"
-                tools:text="128" />
+                android:orientation="horizontal"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical">
+    
+                <ImageView
+                    android:id="@+id/avatarImageView"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/profile_avatar"
+                    tools:src="@tools:sample/avatars" />
+    
+                <TextView
+                    android:id="@+id/usernameTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    tools:text="Username" />
+    
+                <com.qh.wypet.widgets.IconFontView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/icons_624"
+                    android:textSize="14sp"
+                    />
+    
+                <TextView
+                    android:id="@+id/likesCountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/darker_gray"
+                    tools:text="128" />
+            </LinearLayout>
         </LinearLayout>
-
     </LinearLayout>
 
-</LinearLayout> 
+</androidx.cardview.widget.CardView> 

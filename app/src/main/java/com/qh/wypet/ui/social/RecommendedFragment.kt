@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.qh.wypet.databinding.FragmentRecommendedBinding
 import com.qh.wypet.ui.base.BaseFragment
 
@@ -43,7 +43,7 @@ class RecommendedFragment : BaseFragment(), SocialFeedAdapter.SocialFeedInteract
     private fun setupRecyclerView() {
         adapter = SocialFeedAdapter(feedItems, this)
         binding.recyclerViewRecommended.apply {
-            layoutManager = GridLayoutManager(requireContext(), 2)
+            layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             adapter = this@RecommendedFragment.adapter
         }
     }

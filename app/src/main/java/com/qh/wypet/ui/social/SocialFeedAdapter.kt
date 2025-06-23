@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.bumptech.glide.Glide
 import com.qh.wypet.R
 import com.qh.wypet.utils.ImageUrls
@@ -31,16 +32,34 @@ class SocialFeedAdapter(
 
     override fun onBindViewHolder(holder: SocialFeedViewHolder, position: Int) {
         holder.bind(items[position])
+        
+        // 根据文本内容长度设置不同的图片高宽比
+        val item = items[position]
+        val contentLength = item.content.length
+        
+        // 调整图片的高宽比，使内容少的卡片更小，内容多的卡片更大
+        val imageParams = holder.contentImageView.layoutParams as androidx.constraintlayout.widget.ConstraintLayout.LayoutParams
+        
+        // 保持宽度不变，根据文本长度修改高宽比
+        if (contentLength < 20) { // 短文本
+            imageParams.dimensionRatio = "2:2" // 降低高度
+        } else if (contentLength > 100) { // 长文本 
+            imageParams.dimensionRatio = "2:3.5" // 增加高度
+        } else { // 中等长度
+            imageParams.dimensionRatio = "2:3" // 默认高宽比
+        }
+        
+        holder.contentImageView.layoutParams = imageParams
     }
 
     override fun getItemCount(): Int = items.size
 
     inner class SocialFeedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val usernameTextView: TextView = itemView.findViewById(R.id.usernameTextView)
-        private val contentTextView: TextView = itemView.findViewById(R.id.contentTextView)
+        val contentTextView: TextView = itemView.findViewById(R.id.contentTextView)
         private val likesCountTextView: TextView = itemView.findViewById(R.id.likesCountTextView)
         private val avatarImageView: ImageView = itemView.findViewById(R.id.avatarImageView)
-        private val contentImageView: ImageView = itemView.findViewById(R.id.contentImageView)
+        val contentImageView: ImageView = itemView.findViewById(R.id.contentImageView)
 
         fun bind(item: SocialFeedItem) {
             usernameTextView.text = item.username

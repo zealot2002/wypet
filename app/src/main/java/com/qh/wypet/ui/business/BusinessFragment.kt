@@ -179,6 +179,29 @@ class BusinessFragment : BaseFragment() {
                     hasShipping = true,
                     imageUrl = ImageUrls.CAT_FOOD_5
                 ),
+                ProductModel(
+                    id = "13",
+                    name = "喵趣猫粮 三文鱼成猫粮 1.5kg",
+                    price = "99",
+                    discount = "10",
+                    hasShipping = true,
+                    imageUrl = ImageUrls.CAT_FOOD_2
+                ),
+                ProductModel(
+                    id = "14",
+                    name = "伟嘉猫粮 成猫牛肉味 10kg",
+                    price = "299",
+                    hasShipping = true,
+                    imageUrl = ImageUrls.CAT_FOOD_3
+                ),
+                ProductModel(
+                    id = "15",
+                    name = "希尔思猫粮 幼猫配方 2.5kg",
+                    price = "259",
+                    discount = "30",
+                    hasShipping = true,
+                    imageUrl = ImageUrls.CAT_FOOD_4
+                ),
                 
                 // 猫玩具类产品
                 ProductModel(
@@ -195,6 +218,29 @@ class BusinessFragment : BaseFragment() {
                     price = "89",
                     hasShipping = true,
                     imageUrl = ImageUrls.CAT_TOY_9
+                ),
+                ProductModel(
+                    id = "16",
+                    name = "猫隧道玩具 四通道可折叠",
+                    price = "59",
+                    discount = "5",
+                    hasShipping = true,
+                    imageUrl = ImageUrls.CAT_TOY_1
+                ),
+                ProductModel(
+                    id = "17",
+                    name = "猫咪磨爪玩具 瓦楞纸耐磨",
+                    price = "29",
+                    hasShipping = true,
+                    imageUrl = ImageUrls.CAT_TOY_2
+                ),
+                ProductModel(
+                    id = "18",
+                    name = "猫咪激光逗猫棒 USB充电",
+                    price = "49",
+                    discount = "8",
+                    hasShipping = true,
+                    imageUrl = ImageUrls.CAT_TOY_3
                 ),
                 
                 // 猫咪用品类产品
@@ -213,6 +259,29 @@ class BusinessFragment : BaseFragment() {
                     hasShipping = true,
                     imageUrl = ImageUrls.CAT_SUPPLIES_9
                 ),
+                ProductModel(
+                    id = "19",
+                    name = "猫咪洗澡袋 防抓伤洗猫袋",
+                    price = "59",
+                    discount = "10",
+                    hasShipping = true,
+                    imageUrl = ImageUrls.CAT_SUPPLIES_1
+                ),
+                ProductModel(
+                    id = "20",
+                    name = "猫咪牙刷套装 口腔清洁工具",
+                    price = "45",
+                    hasShipping = true,
+                    imageUrl = ImageUrls.CAT_SUPPLIES_3
+                ),
+                ProductModel(
+                    id = "21",
+                    name = "猫咪耳道清洁液 100ml",
+                    price = "38",
+                    discount = "5",
+                    hasShipping = true,
+                    imageUrl = ImageUrls.CAT_SUPPLIES_4
+                ),
                 
                 // 宠物健康类产品
                 ProductModel(
@@ -229,6 +298,29 @@ class BusinessFragment : BaseFragment() {
                     price = "68",
                     hasShipping = true,
                     imageUrl = ImageUrls.PET_HEALTH_7
+                ),
+                ProductModel(
+                    id = "22",
+                    name = "猫咪维生素营养粉 60g",
+                    price = "85",
+                    discount = "15",
+                    hasShipping = true,
+                    imageUrl = ImageUrls.PET_HEALTH_1
+                ),
+                ProductModel(
+                    id = "23",
+                    name = "猫咪关节保健品 鱼油丸 90粒",
+                    price = "119",
+                    hasShipping = true,
+                    imageUrl = ImageUrls.PET_HEALTH_2
+                ),
+                ProductModel(
+                    id = "24",
+                    name = "猫咪护眼滴剂 天然草本 15ml",
+                    price = "49",
+                    discount = "5",
+                    hasShipping = true,
+                    imageUrl = ImageUrls.PET_HEALTH_4
                 ),
                 
                 // 猫砂类产品
@@ -247,6 +339,29 @@ class BusinessFragment : BaseFragment() {
                     hasShipping = true,
                     imageUrl = ImageUrls.CAT_LITTER_5
                 ),
+                ProductModel(
+                    id = "25",
+                    name = "水晶猫砂 无尘除臭 3.8L",
+                    price = "45",
+                    discount = "8",
+                    hasShipping = true,
+                    imageUrl = ImageUrls.CAT_LITTER_1
+                ),
+                ProductModel(
+                    id = "26",
+                    name = "松木猫砂 天然环保 5kg",
+                    price = "55",
+                    hasShipping = true,
+                    imageUrl = ImageUrls.CAT_LITTER_3
+                ),
+                ProductModel(
+                    id = "27",
+                    name = "混合豆腐猫砂 绿茶味 7L",
+                    price = "49",
+                    discount = "7",
+                    hasShipping = true,
+                    imageUrl = ImageUrls.CAT_LITTER_4
+                ),
                 
                 // 猫薄荷类产品
                 ProductModel(
@@ -263,6 +378,29 @@ class BusinessFragment : BaseFragment() {
                     discount = "3",
                     hasShipping = true,
                     imageUrl = ImageUrls.CAT_MINT_9
+                ),
+                ProductModel(
+                    id = "28",
+                    name = "猫薄荷枕头玩具 可替换内芯",
+                    price = "25",
+                    discount = "5",
+                    hasShipping = true,
+                    imageUrl = ImageUrls.CAT_MINT_1
+                ),
+                ProductModel(
+                    id = "29",
+                    name = "猫薄荷喷雾剂 50ml",
+                    price = "32",
+                    hasShipping = true,
+                    imageUrl = ImageUrls.CAT_MINT_2
+                ),
+                ProductModel(
+                    id = "30",
+                    name = "猫薄荷种植套装 DIY猫草种子",
+                    price = "28",
+                    discount = "4",
+                    hasShipping = true,
+                    imageUrl = ImageUrls.CAT_MINT_3
                 )
             )
         )
