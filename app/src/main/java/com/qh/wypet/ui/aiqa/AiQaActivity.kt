@@ -27,7 +27,6 @@ class AiQaActivity : AppCompatActivity() {
     private lateinit var chatAdapter: AiQaChatAdapter
     private val chatMessages = Collections.synchronizedList(mutableListOf<AiMessage>())
     private lateinit var apiClient: HunyuanApiClient
-    private var isDeepThinkingEnabled = false
     private val handler = Handler(Looper.getMainLooper())
     private val random = Random()
     
@@ -57,9 +56,9 @@ class AiQaActivity : AppCompatActivity() {
     private fun setupRecyclerView() {
         chatAdapter = AiQaChatAdapter(chatMessages)
         binding.recyclerViewChat.apply {
-            layoutManager = LinearLayoutManager(this@AiQaActivity).apply {
-            }
+            layoutManager = LinearLayoutManager(this@AiQaActivity)
             adapter = chatAdapter
+            
             // 防止RecyclerView在更新时闪烁
             itemAnimator = null
         }
@@ -110,12 +109,6 @@ class AiQaActivity : AppCompatActivity() {
         binding.sampleQuestion2.setOnClickListener { askQuestion(sampleQuestions[1]) }
         binding.sampleQuestion3.setOnClickListener { askQuestion(sampleQuestions[2]) }
         binding.sampleQuestion4.setOnClickListener { askQuestion(sampleQuestions[3]) }
-        
-        // 深度思考开关
-        binding.deepThinkingSwitch.setOnCheckedChangeListener { _, isChecked ->
-            isDeepThinkingEnabled = isChecked
-            Toast.makeText(this, if (isChecked) "已开启深度思考" else "已关闭深度思考", Toast.LENGTH_SHORT).show()
-        }
     }
     
     private fun setupKeyboardBehavior() {
@@ -172,11 +165,7 @@ class AiQaActivity : AppCompatActivity() {
         }
         
         // 延迟一段时间后再发送请求，模拟思考时间
-        val thinkingTime = if (isDeepThinkingEnabled) {
-            random.nextInt(2000) + 2000 // 深度思考：2-4秒
-        } else {
-            random.nextInt(1000) + 1000 // 普通思考：1-2秒
-        }
+        val thinkingTime = random.nextInt(1000) + 1000 // 思考：1-2秒
         
         handler.postDelayed({
             // 调用混元API获取回答

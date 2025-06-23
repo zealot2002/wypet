@@ -128,7 +128,7 @@
         android:visibility="gone"
         android:paddingBottom="80dp"
         android:clipToPadding="false"
-        app:layout_constraintBottom_toTopOf="@id/bottomOptionsLayout"
+        app:layout_constraintBottom_toTopOf="@id/inputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/questionsScrollView" />
@@ -139,96 +139,10 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/bottomOptionsLayout"
+        app:layout_constraintBottom_toTopOf="@id/inputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/questionsScrollView" />
-
-    <!-- 底部选项区域 -->
-    <LinearLayout
-        android:id="@+id/bottomOptionsLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/shape_rounded_rect"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        app:layout_constraintBottom_toTopOf="@id/inputLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageView
-            android:id="@+id/deepThinkingIcon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="8dp"
-            android:src="@drawable/ic_ai"
-            app:tint="#666666" />
-
-        <TextView
-            android:id="@+id/deepThinkingLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="深度思考"
-            android:textColor="#666666"
-            android:textSize="14sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="R1"
-            android:textColor="#666666"
-            android:textSize="12sp" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/deepThinkingSwitch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:checked="false" />
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <ImageView
-            android:id="@+id/knowledgeIcon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_encyclopedia"
-            app:tint="#666666" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="知"
-            android:textColor="#666666"
-            android:textSize="14sp" />
-
-        <ImageView
-            android:id="@+id/educationIcon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="8dp"
-            android:src="@drawable/ic_edit"
-            app:tint="#666666" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="8dp"
-            android:text="学"
-            android:textColor="#666666"
-            android:textSize="14sp" />
-
-    </LinearLayout>
 
     <!-- 底部输入区域 -->
     <LinearLayout

@@ -7,26 +7,21 @@
     android:paddingTop="8dp"
     android:paddingBottom="8dp">
 
+    <!-- AI消息文本，充满屏幕宽度 -->
     <TextView
         android:id="@+id/messageText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
-        android:background="@drawable/shape_rounded_rect"
+        android:layout_marginHorizontal="12dp"
+        android:background="@drawable/shape_ai_message"
+        android:gravity="start"
         android:padding="12dp"
+        android:textAlignment="textStart"
         android:textColor="@android:color/black"
         android:textSize="15sp"
-        app:layout_constraintEnd_toStartOf="@id/spacerRight"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="这是AI助手的回复" />
+        tools:text="这是AI助手的回复，内容可能会很长，需要充满整个屏幕宽度以便于阅读和显示更多内容。" />
 
-    <Space
-        android:id="@+id/spacerRight"
-        android:layout_width="48dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout> 
+</androidx.constraintlayout.widget.ConstraintLayout>
