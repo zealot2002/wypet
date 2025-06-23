@@ -95,7 +95,7 @@
                         android:drawablePadding="6dp"
                         android:drawableTint="#03A9F4"
                         android:gravity="center_vertical"
-                        android:text="无忧宠服编辑团队"
+                        android:text="无忧宠服"
                         android:textColor="@android:color/darker_gray"
                         android:textSize="12sp"
                         app:layout_constraintStart_toStartOf="parent"

@@ -54,6 +54,9 @@
             android:name=".ui.encyclopedia.ArticleDetailActivity"
             android:theme="@style/Theme.Wypet.NoActionBar"
             android:exported="false" />
+        <activity
+            android:name=".ui.aiqa.AiQaActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

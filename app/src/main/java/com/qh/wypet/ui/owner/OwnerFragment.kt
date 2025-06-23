@@ -9,6 +9,7 @@ import com.qh.wypet.MainActivity
 import com.qh.wypet.databinding.FragmentOwnerBinding
 import com.qh.wypet.ui.base.BaseFragment
 import com.qh.wypet.ui.encyclopedia.EncyclopediaActivity
+import com.qh.wypet.ui.aiqa.AiQaActivity
 
 class OwnerFragment : BaseFragment() {
 
@@ -67,7 +68,8 @@ class OwnerFragment : BaseFragment() {
         }
         
         binding.aiCard.setOnClickListener {
-            showToast("AI问答")
+            // 启动AI问答页面
+            AiQaActivity.start(requireContext())
         }
     }
     
