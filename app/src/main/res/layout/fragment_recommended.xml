@@ -19,4 +19,17 @@
         android:paddingEnd="2dp"
         android:paddingTop="2dp" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabScrollToTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/scroll_to_top"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_arrow_forward"
+        android:rotation="270"
+        app:backgroundTint="#FFFFFF" />
+
 </androidx.constraintlayout.widget.ConstraintLayout> 

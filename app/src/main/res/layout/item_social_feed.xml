@@ -4,10 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:foreground="@drawable/ripple_effect"
     android:clickable="true"
     android:focusable="true"
-    app:cardCornerRadius="8dp"
     app:cardUseCompatPadding="true">
 
     <LinearLayout

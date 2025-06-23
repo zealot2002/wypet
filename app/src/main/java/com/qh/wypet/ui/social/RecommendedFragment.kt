@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.qh.wypet.databinding.FragmentRecommendedBinding
 import com.qh.wypet.ui.base.BaseFragment
@@ -30,6 +31,7 @@ class RecommendedFragment : BaseFragment(), SocialFeedAdapter.SocialFeedInteract
         super.onViewCreated(view, savedInstanceState)
         
         setupRecyclerView()
+        setupScrollToTop()
     }
     
     /**
@@ -45,6 +47,33 @@ class RecommendedFragment : BaseFragment(), SocialFeedAdapter.SocialFeedInteract
         binding.recyclerViewRecommended.apply {
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             adapter = this@RecommendedFragment.adapter
+        }
+    }
+    
+    private fun setupScrollToTop() {
+        // 设置滚动监听
+        binding.recyclerViewRecommended.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                
+                // 判断是否滚动超过屏幕高度
+                val layoutManager = recyclerView.layoutManager as StaggeredGridLayoutManager
+                val firstVisibleItemPositions = IntArray(layoutManager.spanCount)
+                layoutManager.findFirstVisibleItemPositions(firstVisibleItemPositions)
+                
+                // 如果第一个可见项不是第一项，显示回到顶部按钮
+                val isAtTop = firstVisibleItemPositions[0] <= 0
+                if (isAtTop) {
+                    binding.fabScrollToTop.hide()
+                } else {
+                    binding.fabScrollToTop.show()
+                }
+            }
+        })
+        
+        // 设置点击监听
+        binding.fabScrollToTop.setOnClickListener {
+            binding.recyclerViewRecommended.smoothScrollToPosition(0)
         }
     }
     

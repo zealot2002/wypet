@@ -17,6 +17,7 @@
     <string name="comment">Comment</string>
     <string name="share">Share</string>
     <string name="favorite">Favorite</string>
+    <string name="scroll_to_top">回到顶部</string>
     
     <!-- Icon Font references -->
     <string name="icon_favorite">&#xe60f;</string>
