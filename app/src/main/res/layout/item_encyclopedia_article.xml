@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="4dp"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeColor="#E0E0E0"
+    app:strokeWidth="0.5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="12dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/imageContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/articleThumbnail"
+                android:layout_width="120dp"
+                android:layout_height="90dp"
+                android:scaleType="centerCrop"
+                tools:src="@android:drawable/ic_menu_gallery" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/articleTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="12dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageContainer"
+            app:layout_constraintTop_toTopOf="@+id/imageContainer"
+            tools:text="猫咪饮食指南：如何科学喂养你的爱猫" />
+
+        <TextView
+            android:id="@+id/articleDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="12dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageContainer"
+            app:layout_constraintTop_toBottomOf="@+id/articleTitle"
+            tools:text="科学的猫咪饮食习惯对猫咪的健康至关重要。本文将介绍猫咪的营养需求，以及如何选择适合的猫粮..." />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/articleTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@android:color/white"
+            android:textSize="10sp"
+            app:chipBackgroundColor="#03A9F4"
+            app:chipMinHeight="24dp"
+            app:layout_constraintStart_toEndOf="@+id/imageContainer"
+            app:layout_constraintTop_toBottomOf="@+id/articleDescription"
+            tools:text="饮食" />
+
+        <TextView
+            android:id="@+id/articleTimestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/articleTag"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/articleTag"
+            tools:text="2023-06-15" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView> 

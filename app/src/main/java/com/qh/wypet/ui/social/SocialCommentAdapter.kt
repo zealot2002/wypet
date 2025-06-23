@@ -8,9 +8,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.qh.wypet.R
+import com.qh.wypet.utils.ImageLoaderUtils
 
 class SocialCommentAdapter(
     private val comments: List<SocialCommentModel>,
@@ -181,11 +180,8 @@ class SocialCommentAdapter(
             
             contentView.text = comment.content
 
-            Glide.with(itemView.context)
-                .load(comment.userAvatar)
-                .apply(RequestOptions.circleCropTransform())
-                .placeholder(R.drawable.shape_circle)
-                .into(avatarView)
+            // 使用统一的图片加载工具
+            ImageLoaderUtils.loadCircleImage(avatarView, comment.userAvatar)
                 
             // 设置回复按钮点击事件
             replyButton.setOnClickListener {
@@ -237,11 +233,8 @@ class SocialCommentAdapter(
             } else ""
             contentView.text = "$replyPrefix${comment.content}"
 
-            Glide.with(itemView.context)
-                .load(comment.userAvatar)
-                .apply(RequestOptions.circleCropTransform())
-                .placeholder(R.drawable.shape_circle)
-                .into(avatarView)
+            // 使用统一的图片加载工具
+            ImageLoaderUtils.loadCircleImage(avatarView, comment.userAvatar)
                 
             // 设置回复按钮点击事件
             replyButton.setOnClickListener {

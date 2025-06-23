@@ -428,4 +428,24 @@ object ImageUrls {
     fun getRandomCatGifImage(): String {
         return CAT_GIF_IMAGES.random()
     }
+
+    /**
+     * 百科相关图片
+     */
+    object Encyclopedia {
+        // 专题图片
+        val KITTEN_GUIDE = "https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_1280.jpg" // 幼猫指南
+        val DISEASE_ATLAS = "https://cdn.pixabay.com/photo/2017/11/09/21/41/cat-2934720_1280.jpg" // 疾病图谱
+        val EMERGENCY_GUIDE = "https://cdn.pixabay.com/photo/2019/05/08/21/21/cat-4189697_1280.jpg" // 急救手册
+        
+        // 文章图片
+        val CAT_NUTRITION = "https://cdn.pixabay.com/photo/2017/10/02/21/56/cat-2810433_1280.jpg" // 猫咪饮食
+        val CAT_BEHAVIOR = "https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_1280.jpg" // 猫咪行为
+        val NEW_OWNER = "https://cdn.pixabay.com/photo/2019/11/08/11/56/cat-4611189_1280.jpg" // 新手铲屎官
+        val SEASONAL_CARE = "https://cdn.pixabay.com/photo/2016/01/20/13/05/cat-1151519_1280.jpg" // 季节性护理
+        
+        // 分类图标（这些暂时还是使用本地资源）
+        const val CAT_HEALTH_ICON = "ic_cat_health" 
+        const val CAT_INFO_ICON = "ic_cat_info"
+    }
 }

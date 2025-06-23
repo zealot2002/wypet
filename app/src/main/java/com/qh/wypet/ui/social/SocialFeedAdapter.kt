@@ -9,8 +9,8 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.bumptech.glide.Glide
 import com.qh.wypet.R
+import com.qh.wypet.utils.ImageLoaderUtils
 import com.qh.wypet.utils.ImageUrls
 import com.qh.wypet.utils.PetPhotographyImages
 
@@ -68,18 +68,11 @@ class SocialFeedAdapter(
             
             // Load avatar image
             val avatarUrl = item.avatarUrl ?: getRandomAvatarUrl()
-            Glide.with(itemView.context)
-                .load(avatarUrl)
-                .placeholder(R.drawable.ic_pet)
-                .circleCrop()
-                .into(avatarImageView)
+            ImageLoaderUtils.loadCircleImage(avatarImageView, avatarUrl)
             
             // Load content image - use PetPhotographyImages for content images
             val imageUrl = item.imageUrl ?: getRandomContentImage()
-            Glide.with(itemView.context)
-                .load(imageUrl)
-                .placeholder(R.drawable.ic_pet)
-                .into(contentImageView)
+            ImageLoaderUtils.loadCenterCropImage(contentImageView, imageUrl)
             
             // Set click listeners
             itemView.setOnClickListener {

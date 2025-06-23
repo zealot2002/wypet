@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- 添加项目logo图片 -->
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@mipmap/wuyoupetlogo"
+            android:scaleType="fitCenter"
+            android:contentDescription="无忧宠服Logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="无忧宠服"
+            android:textSize="16sp"
+            android:textColor="#333333"
+            android:layout_marginTop="8dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</FrameLayout> 

@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.qh.wypet.MainActivity
 import com.qh.wypet.databinding.FragmentOwnerBinding
 import com.qh.wypet.ui.base.BaseFragment
+import com.qh.wypet.ui.encyclopedia.EncyclopediaActivity
 
 class OwnerFragment : BaseFragment() {
 
@@ -61,7 +62,8 @@ class OwnerFragment : BaseFragment() {
     
     private fun setupKnowledgeCenter() {
         binding.encyclopediaCard.setOnClickListener {
-            showToast("猫咪营养饲养百科")
+            // 启动百科页面
+            EncyclopediaActivity.start(requireContext())
         }
         
         binding.aiCard.setOnClickListener {

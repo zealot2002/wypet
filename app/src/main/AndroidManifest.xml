@@ -42,6 +42,8 @@
             android:name=".ui.social.SocialFeedDetailActivity"
             android:theme="@style/Theme.Wypet.NoActionBar"
             android:exported="false" />
+        <activity android:name=".ui.encyclopedia.EncyclopediaActivity" />
+        <activity android:name=".ui.encyclopedia.QuestionListActivity" />
     </application>
 
 </manifest>

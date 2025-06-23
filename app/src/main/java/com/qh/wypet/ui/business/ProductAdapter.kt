@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.qh.wypet.R
+import com.qh.wypet.utils.ImageLoaderUtils
 import com.qh.wypet.widgets.PriceView
 
 class ProductAdapter(
@@ -44,11 +44,8 @@ class ProductAdapter(
         }
 
         fun bind(product: ProductModel) {
-            // 增强图片加载配置
-            Glide.with(itemView.context)
-                .load(product.imageUrl)
-                .centerCrop()
-                .into(imageView)
+            // 使用通用图片加载工具
+            ImageLoaderUtils.loadCenterCropImage(imageView, product.imageUrl)
     
             // 设置标题和价格
             titleView.text = product.name

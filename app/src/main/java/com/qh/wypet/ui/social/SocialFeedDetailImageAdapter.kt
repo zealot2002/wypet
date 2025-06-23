@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.qh.wypet.R
+import com.qh.wypet.utils.ImageLoaderUtils
 
 class SocialFeedDetailImageAdapter(
     private val imageUrls: List<String>
@@ -22,36 +22,34 @@ class SocialFeedDetailImageAdapter(
         private val imageView: ImageView = itemView.findViewById(R.id.imageView)
 
         fun bind(imageUrl: String, position: Int) {
-            Glide.with(itemView.context)
-                .load(imageUrl)
-                .centerCrop()
-                .listener(object : RequestListener<android.graphics.drawable.Drawable> {
-                    override fun onLoadFailed(
-                        e: GlideException?,
-                        model: Any?,
-                        target: Target<Drawable?>,
-                        isFirstResource: Boolean
-                    ): Boolean {
-                        if (position == 0) {
-                            (itemView.context as? AppCompatActivity)?.supportStartPostponedEnterTransition()
-                        }
-                        return false
+            val listener = object : RequestListener<Drawable> {
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any?,
+                    target: Target<Drawable>,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    if (position == 0) {
+                        (itemView.context as? AppCompatActivity)?.supportStartPostponedEnterTransition()
                     }
+                    return false
+                }
 
-                    override fun onResourceReady(
-                        resource: Drawable,
-                        model: Any,
-                        target: Target<Drawable?>?,
-                        dataSource: DataSource,
-                        isFirstResource: Boolean
-                    ): Boolean {
-                        if (position == 0) {
-                            (itemView.context as? AppCompatActivity)?.supportStartPostponedEnterTransition()
-                        }
-                        return false
+                override fun onResourceReady(
+                    resource: Drawable,
+                    model: Any,
+                    target: Target<Drawable>,
+                    dataSource: DataSource,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    if (position == 0) {
+                        (itemView.context as? AppCompatActivity)?.supportStartPostponedEnterTransition()
                     }
-                })
-                .into(imageView)
+                    return false
+                }
+            }
+            
+            ImageLoaderUtils.loadImageWithListener(imageView, imageUrl, listener)
         }
     }
 

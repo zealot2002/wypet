@@ -5,10 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.request.RequestOptions
 import com.qh.wypet.R
+import com.qh.wypet.utils.ImageLoaderUtils
 
 class ProductImageAdapter(private val imageUrls: List<String>) :
     RecyclerView.Adapter<ProductImageAdapter.ImageViewHolder>() {
@@ -29,16 +27,7 @@ class ProductImageAdapter(private val imageUrls: List<String>) :
         private val imageView: ImageView = itemView.findViewById(R.id.productImage)
 
         fun bind(imageUrl: String) {
-            val requestOptions = RequestOptions()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .placeholder(R.drawable.shape_rectangle)
-                .error(R.drawable.shape_rectangle)
-            
-            Glide.with(itemView.context)
-                .load(imageUrl)
-                .apply(requestOptions)
-                .fitCenter()
-                .into(imageView)
+            ImageLoaderUtils.loadFitCenterImage(imageView, imageUrl)
         }
     }
 } 

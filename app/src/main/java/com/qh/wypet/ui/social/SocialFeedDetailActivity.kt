@@ -15,9 +15,9 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
-import com.bumptech.glide.Glide
 import com.qh.wypet.R
 import com.qh.wypet.databinding.ActivitySocialFeedDetailBinding
+import com.qh.wypet.utils.ImageLoaderUtils
 import com.qh.wypet.utils.PetPhotographyImages
 
 class SocialFeedDetailActivity : AppCompatActivity() {
@@ -75,11 +75,8 @@ class SocialFeedDetailActivity : AppCompatActivity() {
         // Set username and avatar
         binding.usernameTextView.text = username ?: "宠物达人"
         
-        Glide.with(this)
-            .load(avatarUrl)
-            .placeholder(R.drawable.ic_pet)
-            .circleCrop()
-            .into(binding.avatarImageView)
+        // 使用统一的图片加载工具加载头像
+        ImageLoaderUtils.loadCircleImage(binding.avatarImageView, avatarUrl)
             
         binding.followButton.setOnClickListener {
             Toast.makeText(this, "已关注 $username", Toast.LENGTH_SHORT).show()

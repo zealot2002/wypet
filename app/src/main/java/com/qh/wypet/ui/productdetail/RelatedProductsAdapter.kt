@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.qh.wypet.R
+import com.qh.wypet.utils.ImageLoaderUtils
 import com.qh.wypet.widgets.PriceView
 import java.text.NumberFormat
 import java.util.Locale
@@ -56,10 +56,8 @@ class RelatedProductsAdapter(
             // 默认隐藏包邮标签
             shippingText.visibility = View.GONE
 
-            Glide.with(itemView.context)
-                .load(product.imageUrl)
-                .centerCrop()
-                .into(imageView)
+            // 使用统一的图片加载工具
+            ImageLoaderUtils.loadCenterCropImage(imageView, product.imageUrl)
         }
     }
 } 
