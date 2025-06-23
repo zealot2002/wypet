@@ -7,4 +7,5 @@
     <!-- Social Feed Detail -->
     <dimen name="dot_size">8dp</dimen>
     <dimen name="dot_margin">4dp</dimen>
+    <dimen name="reply_indent">40dp</dimen>
 </resources> 

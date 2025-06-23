@@ -92,6 +92,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="56dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
@@ -125,7 +126,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="#图文攻略"
+                    android:text="#宠物养护"
                     android:textColor="#4285F4"
                     android:textSize="16sp" />
 
@@ -145,7 +146,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
-                        android:text="新手上路，"
+                        android:text="新手养猫，"
                         android:textColor="@android:color/black"
                         android:textSize="16sp" />
 
@@ -158,7 +159,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="这些你必须先知道📝🚗"
+                        android:text="这些知识必须了解📝🐱"
                         android:textColor="@android:color/black"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -168,7 +169,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="SU7上路前最重要的:"
+                    android:text="英短蓝猫养护指南:"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -178,99 +179,137 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="◆ 提前适应车辆: 新手应对车辆的动力、刹车、转向等性能有充分了解，在空旷场地进行初步试驾，熟悉车辆操作感。"
+                    android:text="◆ 日常饮食: 英短蓝猫作为大型猫咪，需要高蛋白优质猫粮。宠无忧推荐的猫粮含有丰富的牛磺酸和Ω-3脂肪酸，能保持皮毛光泽并减少毛球形成。每天喂食2-3次，定量控制体重。"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
-
+                    android:textSize="16sp" 
+                    android:layout_marginBottom="16dp" />
+            </LinearLayout>
+            
+            <!-- 分割线 -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="#f6f6f6"
+                android:layout_marginTop="16dp" />
+                
+            <!-- 评论列表部分 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <EditText
-                        android:id="@+id/commentEditText"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="用户评论"
+                        android:textColor="#333333"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                        
+                    <TextView
+                        android:id="@+id/commentCountTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:textColor="#666666"
+                        android:textSize="14sp"
+                        tools:text="(5)" />
+                        
+                    <View
                         android:layout_width="0dp"
-                        android:layout_height="48dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/shape_rounded_rect"
-                        android:backgroundTint="#F5F5F5"
-                        android:hint="说点什么..."
-                        android:padding="8dp"
-                        android:textColorHint="#9E9E9E"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                        
+                    <TextView
+                        android:id="@+id/viewAllComments"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="查看全部 >"
+                        android:textColor="#999999"
                         android:textSize="14sp" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:orientation="vertical"
-                        android:gravity="center">
-                        
-                        <ImageView
-                            android:id="@+id/likeButton"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:contentDescription="@string/like"
-                            android:src="@drawable/ic_like" />
-                        
-                        <TextView
-                            android:id="@+id/likesCountTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="4"
-                            android:textColor="@android:color/black"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:orientation="vertical"
-                        android:gravity="center">
-                        
-                        <ImageView
-                            android:id="@+id/favoriteButton"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:contentDescription="@string/favorite"
-                            android:src="@drawable/ic_favorite" />
-                        
-                        <TextView
-                            android:id="@+id/favoritesCountTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="1"
-                            android:textColor="@android:color/black"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:orientation="vertical"
-                        android:gravity="center">
-                        
-                        <ImageView
-                            android:id="@+id/commentButton"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:contentDescription="@string/comment"
-                            android:src="@drawable/ic_comment" />
-                        
-                        <TextView
-                            android:id="@+id/commentsCountTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="1"
-                            android:textColor="@android:color/black"
-                            android:textSize="12sp" />
-                    </LinearLayout>
                 </LinearLayout>
+                
+                <!-- 评论列表 -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/commentsRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:nestedScrollingEnabled="false" />
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+    
+    <!-- 固定在底部的评论输入框 -->
+    <LinearLayout
+        android:id="@+id/bottomCommentBar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom"
+        android:background="@android:color/white"
+        android:elevation="8dp"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:gravity="center_vertical">
+        
+        <LinearLayout
+            android:id="@+id/commentInputContainer"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/shape_rounded_rect"
+            android:backgroundTint="#F5F5F5"
+            android:padding="8dp">
+            
+            <EditText
+                android:id="@+id/commentEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="发言要友善，畅聊不要吵"
+                android:textColorHint="#9E9E9E"
+                android:textSize="14sp"
+                android:maxLines="1"
+                android:imeOptions="actionDone"
+                android:inputType="text" />
+        </LinearLayout>
+            
+        <com.qh.wypet.widgets.IconFontView
+            android:id="@+id/likeButtonBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="23dp"
+            android:layout_marginStart="16dp"
+            android:contentDescription="@string/like"
+            android:text="@string/icons_624"
+            />
+            
+        <com.qh.wypet.widgets.IconFontView
+            android:id="@+id/favoriteButtonBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="23dp"
+            android:layout_marginStart="16dp"
+            android:contentDescription="@string/favorite"
+            android:text="@string/icons_70c"
+             />
+        <com.qh.wypet.widgets.IconFontView
+            android:id="@+id/commentButtonBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="23dp"
+            android:layout_marginStart="16dp"
+            android:contentDescription="@string/comment"
+            android:text="@string/icons_64a"
+            />
+    </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout> 

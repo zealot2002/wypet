@@ -21,9 +21,11 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/commentHeaderContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/userName"
@@ -42,6 +44,8 @@
                 android:textColor="#999999"
                 android:textSize="12sp"
                 tools:text="2023-06-15" />
+            
+            <!-- 回复按钮将在代码中动态添加到这个容器中 -->
         </LinearLayout>
 
         <TextView
