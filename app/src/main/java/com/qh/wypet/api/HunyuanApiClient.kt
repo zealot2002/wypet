@@ -33,9 +33,9 @@ class HunyuanApiClient {
         
         val client = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
-            .connectTimeout(30, TimeUnit.SECONDS)
-            .readTimeout(30, TimeUnit.SECONDS)
-            .writeTimeout(30, TimeUnit.SECONDS)
+            .connectTimeout(15, TimeUnit.SECONDS)
+            .readTimeout(15, TimeUnit.SECONDS)
+            .writeTimeout(15, TimeUnit.SECONDS)
             .build()
         
         val retrofit = Retrofit.Builder()
@@ -83,13 +83,13 @@ class HunyuanApiClient {
             messagesArray.add(userMessage)
             
             // 创建请求对象，按照官方文档定义参数
-            val modelName = "hunyuan-turbos-latest"
+            val modelName = "hunyuan-lite"  // 使用轻量级模型以提高响应速度
             val requestObject = JsonObject()
             requestObject.addProperty("model", modelName)
             requestObject.add("messages", Gson().toJsonTree(messagesArray))
             requestObject.addProperty("temperature", 0.7)
             requestObject.addProperty("top_p", 0.95)
-            requestObject.addProperty("enable_enhancement", true) // 官方文档中的参数
+            // 不使用enable_enhancement以加快响应
             
             val requestJson = Gson().toJson(requestObject)
             logFullRequestDetails(modelName, messagesArray, requestJson)
