@@ -7,33 +7,77 @@
     android:background="@color/light_background"
     android:fillViewport="true">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <!-- Profile Header Section -->
+        <!-- Profile Header Section with background image -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/profile_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:padding="16dp"
-            app:layout_constraintTop_toTopOf="parent">
+            android:background="@android:color/black"
+            android:paddingBottom="16dp">
 
+            <!-- Space for status bar -->
+            <View
+                android:id="@+id/status_bar_spacing"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <!-- Header Background (could be replaced with a real background image) -->
+            <ImageView
+                android:id="@+id/header_background"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                android:alpha="0.6"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Top right menu and settings icons -->
+            <LinearLayout
+                android:id="@+id/header_icons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/status_bar_spacing"
+                app:layout_constraintEnd_toEndOf="parent">
+                
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginEnd="24dp"
+                    android:src="@drawable/ic_menu"
+                    />
+
+                <ImageView
+                    android:layout_width="28dp" 
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_settings"
+                    />
+            </LinearLayout>
+            
             <FrameLayout
                 android:id="@+id/profile_image_container"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@id/header_icons">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profile_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_owner"
-                    app:civ_border_color="#EFEFEF"
-                    app:civ_border_width="1dp" />
+                    app:civ_border_color="@color/white"
+                    app:civ_border_width="2dp" />
 
                 <FrameLayout
                     android:id="@+id/camera_button"
@@ -50,59 +94,77 @@
                 </FrameLayout>
             </FrameLayout>
 
-            <TextView
-                android:id="@+id/username"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/profile_info"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="铲屎官"
-                android:textColor="@color/text_primary"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/profile_image_container"
-                app:layout_constraintTop_toTopOf="@+id/profile_image_container" />
+                android:orientation="vertical"
+                app:layout_constraintStart_toEndOf="@id/profile_image_container"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/profile_image_container">
 
-            <TextView
-                android:id="@+id/phone_number"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="138****1234"
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="@+id/username"
-                app:layout_constraintTop_toBottomOf="@+id/username" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_image_container">
-
-                <Button
-                    android:id="@+id/profile_management"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:layout_marginEnd="12dp"
-                    android:background="@drawable/shape_button"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:text="主人信息管理"
-                    android:textColor="@color/text_primary"
-                    android:textSize="14sp" />
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    
+                    <TextView
+                        android:id="@+id/username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="未设置昵称"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+                        
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/ic_edit"
+                        />
+                </LinearLayout>
 
-                <Button
-                    android:id="@+id/account_security"
+                <TextView
+                    android:id="@+id/phone_number"
                     android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:background="@drawable/shape_button"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:text="账户安全"
-                    android:textColor="@color/text_primary"
-                    android:textSize="14sp" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="138****1234"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+                    
+                    <Button
+                        android:id="@+id/profile_management"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/shape_button"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="主人信息管理"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+
+                    <Button
+                        android:id="@+id/account_security"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:background="@drawable/shape_button"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="账户安全"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+                </LinearLayout>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -116,9 +178,7 @@
             android:text="知识中心"
             android:textColor="@color/text_primary"
             android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profile_header" />
+            android:textStyle="bold" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/encyclopedia_card"
@@ -128,8 +188,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             app:cardCornerRadius="12dp"
-            app:cardElevation="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/knowledge_center_title">
+            app:cardElevation="0dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -179,8 +238,7 @@
                     android:src="@drawable/ic_arrow_forward"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:tint="@color/text_secondary" />
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -192,8 +250,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginEnd="16dp"
             app:cardCornerRadius="12dp"
-            app:cardElevation="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/encyclopedia_card">
+            app:cardElevation="0dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -243,8 +300,7 @@
                     android:src="@drawable/ic_arrow_forward"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:tint="@color/text_secondary" />
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -258,9 +314,7 @@
             android:text="快捷功能"
             android:textColor="@color/text_primary"
             android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ai_card" />
+            android:textStyle="bold" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/functions_card"
@@ -271,9 +325,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="24dp"
             app:cardCornerRadius="12dp"
-            app:cardElevation="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/quick_functions_title">
+            app:cardElevation="0dp">
 
             <androidx.gridlayout.widget.GridLayout
                 android:layout_width="match_parent"
@@ -477,5 +529,5 @@
                 </LinearLayout>
             </androidx.gridlayout.widget.GridLayout>
         </androidx.cardview.widget.CardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </ScrollView> 

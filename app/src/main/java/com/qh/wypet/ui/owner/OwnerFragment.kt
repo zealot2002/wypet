@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.qh.wypet.MainActivity
 import com.qh.wypet.databinding.FragmentOwnerBinding
 import com.qh.wypet.ui.base.BaseFragment
 
@@ -25,9 +26,23 @@ class OwnerFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
+        setupStatusBarSpacing()
         setupProfileSection()
         setupKnowledgeCenter()
         setupQuickFunctions()
+    }
+    
+    private fun setupStatusBarSpacing() {
+        // 添加padding到顶部，考虑状态栏高度
+        val statusBarHeight = getStatusBarHeight()
+        binding.statusBarSpacing.layoutParams.height = statusBarHeight
+        binding.statusBarSpacing.requestLayout()
+    }
+    
+    private fun getStatusBarHeight(): Int {
+        val resources = resources
+        val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
+        return if (resourceId > 0) resources.getDimensionPixelSize(resourceId) else 0
     }
     
     private fun setupProfileSection() {

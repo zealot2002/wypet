@@ -41,8 +41,8 @@ class MainActivity : AppCompatActivity() {
         // 隐藏标题栏
         supportRequestWindowFeature(android.view.Window.FEATURE_NO_TITLE)
         
-        // 设置沉浸式状态栏
-        setupImmersiveStatusBar()
+        // 设置默认状态栏
+        setupDefaultStatusBar()
         
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -52,11 +52,11 @@ class MainActivity : AppCompatActivity() {
         setupBottomNavigation()
     }
 
-    private fun setupImmersiveStatusBar() {
+    private fun setupDefaultStatusBar() {
         // 隐藏ActionBar
         supportActionBar?.hide()
         
-        // 强制设置状态栏颜色为白色
+        // 设置状态栏颜色为白色
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         window.statusBarColor = getColor(android.R.color.white)
@@ -66,20 +66,31 @@ class MainActivity : AppCompatActivity() {
             window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         }
         
-        // 让系统自己管理内容区域，不要延伸到状态栏
+        // 让内容不要延伸到状态栏 (适用于默认页面)
         WindowCompat.setDecorFitsSystemWindows(window, true)
-        
-        // 导航栏可以保持透明
-        window.navigationBarColor = android.graphics.Color.TRANSPARENT
         
         // 使用更现代的API设置系统UI可见性
         val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
         windowInsetsController.isAppearanceLightStatusBars = true
         windowInsetsController.isAppearanceLightNavigationBars = true
+    }
+    
+    // 此方法将被OwnerFragment调用
+    fun enableImmersiveMode() {
+        // 允许内容延伸到状态栏
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         
-        // 防止系统手势冲突（Android 10及以上）
-        windowInsetsController.systemBarsBehavior = 
-            WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        // 设置状态栏为透明
+        window.statusBarColor = android.graphics.Color.TRANSPARENT
+        
+        // 设置状态栏图标为浅色，适合深色背景
+        val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
+        windowInsetsController.isAppearanceLightStatusBars = false
+    }
+    
+    // 此方法将被OwnerFragment在销毁时调用
+    fun restoreDefaultStatusBar() {
+        setupDefaultStatusBar()
     }
 
     private fun initFragments() {
@@ -118,6 +129,15 @@ class MainActivity : AppCompatActivity() {
             }
             
             showFragment(fragment)
+            
+            // 如果切换到Owner页面，启用沉浸式模式
+            if (fragment is OwnerFragment) {
+                enableImmersiveMode()
+            } else {
+                // 否则恢复默认状态栏
+                restoreDefaultStatusBar()
+            }
+            
             true
         }
         
