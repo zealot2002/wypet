@@ -444,6 +444,20 @@ object ImageUrls {
         val NEW_OWNER = "https://cdn.pixabay.com/photo/2019/11/08/11/56/cat-4611189_1280.jpg" // 新手铲屎官
         val SEASONAL_CARE = "https://cdn.pixabay.com/photo/2016/01/20/13/05/cat-1151519_1280.jpg" // 季节性护理
         
+        // 文章详情相关图片
+        object CatNutrition {
+            val COVER = "https://cdn.pixabay.com/photo/2018/03/27/17/25/cat-3266673_1280.jpg" // 封面大图
+            val IMAGE1 = "https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_1280.jpg" // 吃饭的猫咪
+            val IMAGE2 = "https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_1280.jpg" // 猫粮特写
+            val IMAGE3 = "https://cdn.pixabay.com/photo/2016/03/28/10/05/kitten-1285341_1280.jpg" // 喝水的猫咪
+        }
+        
+        object CatBehavior {
+            val COVER = "https://cdn.pixabay.com/photo/2017/07/24/19/57/tiger-2535888_1280.jpg" // 封面大图
+            val IMAGE1 = "https://cdn.pixabay.com/photo/2016/11/29/01/10/adorable-1866475_1280.jpg" // 跑动的猫咪
+            val IMAGE2 = "https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg" // 窗台上的猫咪
+        }
+        
         // 分类图标（这些暂时还是使用本地资源）
         const val CAT_HEALTH_ICON = "ic_cat_health" 
         const val CAT_INFO_ICON = "ic_cat_info"

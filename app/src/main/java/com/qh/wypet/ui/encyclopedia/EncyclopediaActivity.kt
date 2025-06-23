@@ -117,10 +117,8 @@ class EncyclopediaActivity : AppCompatActivity() {
     
     private fun setupArticleRecyclerView() {
         articleAdapter = ArticleAdapter { article ->
-            // 处理文章点击事件
-            Toast.makeText(this, "查看《${article.title}》", Toast.LENGTH_SHORT).show()
-            // 可以启动文章详情页
-            // ArticleDetailActivity.start(this, article)
+            // 处理文章点击事件，跳转到文章详情页
+            ArticleDetailActivity.start(this, article.id)
         }
         
         binding.articleRecycler.apply {
