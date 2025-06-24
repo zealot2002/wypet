@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.updatePadding
 import com.google.android.material.tabs.TabLayoutMediator
 import com.qh.wypet.R
@@ -32,6 +33,7 @@ class SocialFragment : BaseFragment() {
         
         setupViewPager()
         setupTabLayout()
+        setupNewPostButton()
     }
     
     /**
@@ -60,6 +62,14 @@ class SocialFragment : BaseFragment() {
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             tab.setText(tabTitles[position])
         }.attach()
+    }
+    
+    private fun setupNewPostButton() {
+        binding.fabNewPost.setOnClickListener {
+            // 处理创建新帖子的逻辑
+            Toast.makeText(context, R.string.create_new_post, Toast.LENGTH_SHORT).show()
+            // TODO: 实现跳转到创建新帖子的界面
+        }
     }
     
     override fun onDestroyView() {
